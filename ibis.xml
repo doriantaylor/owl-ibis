@@ -8,8 +8,6 @@
       xmlns:dct="http://purl.org/dc/terms/"
       xmlns:bibo="http://purl.org/ontology/bibo/"
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
-      xmlns:event="http://purl.org/NET/c4dm/event.owl#"
-      xmlns:pm="http://privatealpha.com/ontology/process-model/1#"
       xmlns:ibis="http://privatealpha.com/ontology/ibis/1#"
       version="XHTML+RDFa 1.0" xml:lang="en">
   <head>
@@ -19,19 +17,21 @@
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
   <body>
+    <div about="#" typeof="owl:Ontology bibo:Webpage">
+      <p property="rdfs:comment">This document specifies a vocabulary for describing an IBIS (issue-based information system).</p>
+      <p><a rel="external rdfs:seeAlso" type="application/pdf" href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"><span property="dct:title">Issues as Elements of Information Systems</span> (<span property="dct:creator" content="Werner Kunz">Kunz</span> and <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span property="dct:date">1970</span>)</a></p>
+      <p><a rel="external rdfs:seeAlso" href="http://dl.acm.org/citation.cfm?id=62278"><span property="dct:title">gIBIS: a hypertext tool for exploratory policy discussion</span> (<span property="dct:creator" content="Jeff Conklin">Conklin</span> and <span property="dct:creator" content="Michael L. Begeman">Begeman</span>, <span property="dct:date">1988</span>)</a></p>
+    </div>
     <div>
       <h2>Classes</h2>
-      <div about="#" typeof="owl:Ontology bibo:Webpage">
-        <p property="rdfs:comment">This is the ontology for interaction design.</p>
-      </div>
       <div id="Belief" about="[ibis:Belief]" typeof="owl:Class">
-        <h2 property="rdfs:label">Belief</h2>
+        <h3 property="rdfs:label">Belief</h3>
         <p xml:lang="en" property="rdfs:comment">A belief is held by a conscious agent.</p>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="Issue" about="[ibis:Issue]" typeof="owl:Class">
-        <h2 xml:lang="en" property="rdfs:label">Issue</h2>
-        <p xml:lang="en" property="rdfs:comment">An issue is believed by one or more agents to be significant.</p>
+        <h3 property="rdfs:label">Issue</h3>
+        <p property="rdfs:comment">An issue is believed by one or more agents to be significant.</p>
         <dl>
           <dt>Subclass of:</dt>
           <dd><a rel="rdfs:subClassOf" href="#Belief">ibis:Belief</a></dd>
@@ -42,7 +42,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="Position" about="[ibis:Position]" typeof="owl:Class">
-        <h2 xml:lang="en" property="rdfs:label">Position</h2>
+        <h3 property="rdfs:label">Position</h3>
         <p xml:lang="en" property="rdfs:comment">A position asserts what should be done about an issue.</p>
         <dl>
           <dt>Subclass of:</dt>
@@ -54,8 +54,8 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="Argument" about="[ibis:Argument]" typeof="owl:Class">
-        <h2 xml:lang="en" property="rdfs:label">Argument</h2>
-        <p xml:lang="en" property="rdfs:comment">An argument supports or refutes a position.</p>
+        <h3 property="rdfs:label">Argument</h3>
+        <p property="rdfs:comment">An argument supports or refutes a position.</p>
         <dl>
           <dt>Subclass of:</dt>
           <dd><a rel="rdfs:subClassOf" href="#Belief">ibis:Belief</a></dd>
@@ -70,7 +70,7 @@
       <h2>Properties</h2>
       <h3>Agency</h3>
       <div id="believes" about="[ibis:believes]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">believes</h2>
+        <h3 property="rdfs:label">believes</h3>
         <p property="rdfs:comment">Represents a belief held by an agent.</p>
         <dl>
           <dt>Domain:</dt>
@@ -83,7 +83,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="believed-by" about="[ibis:believed-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">believed by</h2>
+        <h3 property="rdfs:label">believed by</h3>
         <p property="rdfs:comment">Represents an agent that holds a belief.</p>
         <dl>
           <dt>Domain:</dt>
@@ -96,7 +96,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="advances" about="[ibis:advances]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">advances</h2>
+        <h3 property="rdfs:label">advances</h3>
         <p property="rdfs:comment">An agent can advance (utter) a belief as well as believing it.</p>
         <dl>
           <dt>Domain:</dt>
@@ -112,7 +112,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="advanced-by" about="[ibis:advanced-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">advanced by</h2>
+        <h3 property="rdfs:label">advanced by</h3>
         <p property="rdfs:comment">A belief can be advanced (uttered) by an agent.</p>
         <dl>
           <dt>Domain:</dt>
@@ -129,7 +129,7 @@
       </div>
       <h3>Mereological relation</h3>
       <div id="specializes" about="[ibis:specializes]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">specializes</h2>
+        <h3 property="rdfs:label">specializes</h3>
         <p property="rdfs:comment">The subject issue is a more specific form of the object.</p>
         <dl>
           <dt>Domain:</dt>
@@ -142,7 +142,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="generalizes" about="[ibis:generalizes]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">generalizes</h2>
+        <h3 property="rdfs:label">generalizes</h3>
         <p property="rdfs:comment">The subject issue is a more generic form of the object.</p>
         <dl>
           <dt>Domain:</dt>
@@ -156,7 +156,7 @@
       </div>
       <h3>Replacement</h3>
       <div id="replaces" about="[ibis:replaces]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">replaces</h2>
+        <h3 property="rdfs:label">replaces</h3>
         <p property="rdfs:comment">Indicates when an issue replaces another issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -171,7 +171,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="replaced-by" about="[ibis:replaced-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">replaced by</h2>
+        <h3 property="rdfs:label">replaced by</h3>
         <p property="rdfs:comment">Indicates when an issue is replaced by another issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -187,7 +187,7 @@
       </div>
       <h3>Questions</h3>
       <div id="questions" about="[ibis:questions]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">questions</h2>
+        <h3 property="rdfs:label">questions</h3>
         <p property="rdfs:comment">Indicates an issue that raises doubt on a belief.</p>
         <dl>
           <dt>Domain:</dt>
@@ -200,7 +200,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="questioned-by" about="[ibis:questioned-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">questioned by</h2>
+        <h3 property="rdfs:label">questioned by</h3>
         <p property="rdfs:comment">Indicates a belief called into question by an issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -214,7 +214,7 @@
       </div>
       <h3>Suggestions</h3>
       <div id="suggests" about="[ibis:suggests]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">suggests</h2>
+        <h3 property="rdfs:label">suggests</h3>
         <p property="rdfs:comment">Indicates when the subject belief suggests the object issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -227,7 +227,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="suggested-by" about="[ibis:suggested-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">suggested by</h2>
+        <h3 property="rdfs:label">suggested by</h3>
         <p property="rdfs:comment">Indicates when the subject issue is suggested by the object belief.</p>
         <dl>
           <dt>Domain:</dt>
@@ -241,7 +241,7 @@
       </div>
       <h3>Response</h3>
       <div id="response" about="[ibis:response]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">response</h2>
+        <h3 property="rdfs:label">response</h3>
         <p property="rdfs:comment">Indicates a position that responds to the subject issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -254,7 +254,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="responds-to" about="[ibis:responds-to]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">responds to</h2>
+        <h3 property="rdfs:label">responds to</h3>
         <p property="rdfs:comment">Indicates an issue to which the subject position responds.</p>
         <dl>
           <dt>Domain:</dt>
@@ -268,7 +268,7 @@
       </div>
       <h3>Argumentation</h3>
       <div id="supports" about="[ibis:supports]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">supports</h2>
+        <h3 property="rdfs:label">supports</h3>
         <p property="rdfs:comment">Indicates a subject argument that supports an object position.</p>
         <dl>
           <dt>Domain:</dt>
@@ -281,7 +281,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="supported-by" about="[ibis:supported-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">supported by</h2>
+        <h3 property="rdfs:label">supported by</h3>
         <p property="rdfs:comment">Indicates a subject position supported by an object argument.</p>
         <dl>
           <dt>Domain:</dt>
@@ -294,7 +294,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="opposes" about="[ibis:opposes]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">opposes</h2>
+        <h3 property="rdfs:label">opposes</h3>
         <p property="rdfs:comment">Indicates a subject argument that opposes an object position.</p>
         <dl>
           <dt>Domain:</dt>
@@ -307,7 +307,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="opposed-by" about="[ibis:opposed-by]" typeof="owl:ObjectProperty">
-        <h2 property="rdfs:label">opposed by</h2>
+        <h3 property="rdfs:label">opposed by</h3>
         <p property="rdfs:comment">Indicates a subject position opposed by an object argument.</p>
         <dl>
           <dt>Domain:</dt>
