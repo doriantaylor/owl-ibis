@@ -1,0 +1,47 @@
+digraph {
+    graph [bgcolor=transparent];
+    node [shape=box,color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    edge [color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    foaf_Agent [label="foaf:Agent", style=dashed];
+    skos_Concept [label="skos:Concept", style=dashed];
+    ibis_Issue [label="ibis:Issue"];
+    ibis_Position [label="ibis:Position"];
+    ibis_Argument [label="ibis:Argument"];
+    subgraph {
+        edge [fontsize=10,concentrate=true];
+        ibis_Issue -> ibis_Issue [label="ibis:specializes"];
+        ibis_Issue -> ibis_Issue [label="ibis:generalizes"];
+        ibis_Issue -> ibis_Issue [label="ibis:replaces"];
+        //ibis_Issue -> ibis_Issue [label="ibis:generalizes"];
+        
+        subgraph {
+            edge [label="rdfs:subClassOf"];
+            ibis_Issue -> skos_Concept;
+            ibis_Position -> skos_Concept;
+            ibis_Argument -> skos_Concept;
+        }
+        
+        subgraph {
+            edge [label="ibis:endorses"];
+            foaf_Agent -> ibis_Issue;
+            foaf_Agent -> ibis_Position;
+            foaf_Agent -> ibis_Argument;
+        }
+
+        subgraph {
+            edge [label="ibis:questions"];
+            ibis_Issue -> ibis_Argument
+            ibis_Issue -> ibis_Position
+            ibis_Issue -> ibis_Issue;
+        }
+        subgraph {
+            edge [label="ibis:suggests"];
+            ibis_Position -> ibis_Issue;
+            ibis_Argument -> ibis_Issue;
+            ibis_Issue    -> ibis_Issue;
+        }
+        ibis_Position -> ibis_Issue [label="ibis:responds-to"];
+        ibis_Argument -> ibis_Position [label="ibis:supports"];
+        ibis_Argument -> ibis_Position [label="ibis:opposes"];
+    }
+}

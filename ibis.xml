@@ -6,6 +6,7 @@
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       xmlns:owl="http://www.w3.org/2002/07/owl#"
       xmlns:dct="http://purl.org/dc/terms/"
+      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
       xmlns:bibo="http://purl.org/ontology/bibo/"
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
       xmlns:ibis="http://privatealpha.com/ontology/ibis/1#"
@@ -17,24 +18,29 @@
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
   </head>
   <body>
+    <h2>The IBIS (<a href="#explanation">bis</a>) Vocabulary</h2>
     <div about="#" typeof="owl:Ontology bibo:Webpage">
+      <dl>
+        <dt>Author</dt>
+        <dd><a rel="external dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
+        <dt>Created</dt>
+        <dd property="dct:created" datatype="xsd:dateTime" content="2012-12-11T22:22:53-0800">December 11, 2012</dd>
+        <dt>Updated</dt>
+        <dd property="2012-12-12T16:04:50-0800">December 12, 2012</dd>
+      </dl>
       <p property="rdfs:comment">This document specifies a vocabulary for describing an IBIS (issue-based information system).</p>
-      <p><a rel="external rdfs:seeAlso" type="application/pdf" href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"><span property="dct:title">Issues as Elements of Information Systems</span> (<span property="dct:creator" content="Werner Kunz">Kunz</span> and <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span property="dct:date">1970</span>)</a></p>
-      <p><a rel="external rdfs:seeAlso" href="http://dl.acm.org/citation.cfm?id=62278"><span property="dct:title">gIBIS: a hypertext tool for exploratory policy discussion</span> (<span property="dct:creator" content="Jeff Conklin">Conklin</span> and <span property="dct:creator" content="Michael L. Begeman">Begeman</span>, <span property="dct:date">1988</span>)</a></p>
+      <p>The purpose of this vocabulary is to express the necessary semantics for the internal representation of&#x2014;and interchange between&#x2014;collaborative software systems that facilitate structured argumentation and issue-based reasoning. This vocabulary augments the semantic elements of <a type="application/pdf" rel="external rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf">the gIBIS paper</a> by reusing components from, and thus integrating it into the Semantic Web.</p>
+      <object style="display: block; margin: auto; max-width: 100%; height: auto" data="example.svg"><img src="example" alt=""/></object>
+      <p id="explanation">This document was <a rel="external rdfs:seeAlso" href="http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="http://hyperdata.org/xmlns/ibis/" rel="external dct:creator" href="http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="external dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to supplant the original after several attempts to reach Mr. Ayers. It differs from the Ayers version primarily in that it is an <a rel="external owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <acronym title="Simple Knowledge Organization System">SKOS</acronym></a>, due to the suitability of the <a rel="external" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <acronym title="Issue-Based Information System">IBIS</acronym> types.</p>
     </div>
     <div>
       <h2>Classes</h2>
-      <div id="Belief" about="[ibis:Belief]" typeof="owl:Class">
-        <h3 property="rdfs:label">Belief</h3>
-        <p xml:lang="en" property="rdfs:comment">A belief is held by a conscious agent.</p>
-        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
-      </div>
       <div id="Issue" about="[ibis:Issue]" typeof="owl:Class">
-        <h3 property="rdfs:label">Issue</h3>
+        <h4 property="rdfs:label">Issue</h4>
         <p property="rdfs:comment">An issue is believed by one or more agents to be significant.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Disjoint with:</dt>
           <dd><a rel="owl:disjointWith" href="#Position">ibis:Position</a></dd>
           <dd><a rel="owl:disjointWith" href="#Argument">ibis:Argument</a></dd>
@@ -42,11 +48,11 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="Position" about="[ibis:Position]" typeof="owl:Class">
-        <h3 property="rdfs:label">Position</h3>
+        <h4 property="rdfs:label">Position</h4>
         <p xml:lang="en" property="rdfs:comment">A position asserts what should be done about an issue.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Disjoint with:</dt>
           <dd><a rel="owl:disjointWith" href="#Issue">ibis:Issue</a></dd>
           <dd><a rel="owl:disjointWith" href="#Argument">ibis:Argument</a></dd>
@@ -54,11 +60,11 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="Argument" about="[ibis:Argument]" typeof="owl:Class">
-        <h3 property="rdfs:label">Argument</h3>
+        <h4 property="rdfs:label">Argument</h4>
         <p property="rdfs:comment">An argument supports or refutes a position.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Disjoint with:</dt>
           <dd><a rel="owl:disjointWith" href="#Issue">ibis:Issue</a></dd>
           <dd><a rel="owl:disjointWith" href="#Position">ibis:Position</a></dd>
@@ -69,86 +75,82 @@
     <div>
       <h2>Properties</h2>
       <h3>Agency</h3>
-      <div id="believes" about="[ibis:believes]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">believes</h3>
-        <p property="rdfs:comment">Represents a belief held by an agent.</p>
+      <p>Since argumentation doesn't happen in a vacuum, it is important to provide a mechanism for connecting agents (ideally people) to the process. While the <a rel="external rdfs:seeAlso" href="http://dublincore.org/documents/dcmi-terms/">Dublin Core</a> and <a rel="external rdfs:seeAlso" href="http://www.w3.org/TR/prov-o/">provenance ontologies</a> are available for expressing authorship, there exist other agent-related considerations.</p>
+      <p>These terms are extensions to the original <acronym title="issue-based information system">IBIS</acronym> model.</p>
+      <div id="endorses" about="[ibis:endorses]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">endorses</h4>
+        <p property="rdfs:comment">An agent can endorse a concept without having initially mentioned or advanced it, and without any additional comment.</p>
+        <blockquote class="note">
+          <p property="skos:note">This term, along with ibis:endorsed-by, enables an agent to signal its agreement with a concept. To signal disagreement, explain why with an ibis:Argument that ibis:opposes the concept.</p>
+        </blockquote>
         <dl>
           <dt>Domain:</dt>
           <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
           <dt>Range:</dt>
-          <dd><a rel="rdfs:range" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Inverse of:</dt>
-          <dd><a rel="owl:inverseOf" href="#believed-by">ibis:believed-by</a></dd>
+          <dd><a rel="owl:inverseOf" href="#endorsed-by">ibis:endorsed-by</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
-      <div id="believed-by" about="[ibis:believed-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">believed by</h3>
-        <p property="rdfs:comment">Represents an agent that holds a belief.</p>
+      <div id="endorsed-by" about="[ibis:endorsed-by]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">endorsed by</h4>
+        <p property="rdfs:comment">A concept can be endorsed by an agent without said agent having mentioned or advanced it initially, and without any additional comment.</p>
+        <blockquote class="note">
+          <p property="skos:note">This term, along with ibis:endorses, enables an agent to signal its agreement with a concept. To signal disagreement, explain why with an ibis:Argument that ibis:opposes the concept.</p>
+        </blockquote>
         <dl>
           <dt>Domain:</dt>
-          <dd><a rel="rdfs:domain" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="external rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Range:</dt>
           <dd><a rel="external rdfs:range" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
           <dt>Inverse of:</dt>
-          <dd><a rel="owl:inverseOf" href="#believes">ibis:believes</a></dd>
+          <dd><a rel="owl:inverseOf" href="#endorses">ibis:endorses</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
-      <div id="advances" about="[ibis:advances]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">advances</h3>
-        <p property="rdfs:comment">An agent can advance (utter) a belief as well as believing it.</p>
+      <div id="concerns" about="[ibis:concerns]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">concerns</h4>
+        <p property="rdfs:comment">The subject is an issue concerning the object, which can be any resource.</p>
         <dl>
           <dt>Domain:</dt>
-          <dd><a rel="external rdfs:domain" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
-          <dt>Range:</dt>
-          <dd><a rel="rdfs:range" href="#Belief">ibis:Belief</a></dd>
-          <dt>Sub-property of:</dt>
-          <dd><a rel="rdfs:subPropertyOf" href="#believes">ibis:believes</a></dd>
-          <dd><a rel="rdfs:subPropertyOf" href="http://xmlns.com/foaf/0.1/made">foaf:made</a></dd>
-          <dt>Inverse of:</dt>
-          <dd><a rel="owl:inverseOf" href="#advanced-by">ibis:advanced-by</a></dd>
-        </dl>
-        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
-      </div>
-      <div id="advanced-by" about="[ibis:advanced-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">advanced by</h3>
-        <p property="rdfs:comment">A belief can be advanced (uttered) by an agent.</p>
-        <dl>
-          <dt>Domain:</dt>
-          <dd><a rel="rdfs:domain" href="#Belief">ibis:Belief</a></dd>
-          <dt>Range:</dt>
-          <dd><a rel="external rdfs:range" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
-          <dt>Sub-property of:</dt>
-          <dd><a rel="rdfs:subPropertyOf" href="#believed-by">ibis:believed-by</a></dd>
-          <dd><a rel="rdfs:subPropertyOf" href="http://xmlns.com/foaf/0.1/maker">foaf:maker</a></dd>
-          <dt>Inverse of:</dt>
-          <dd><a rel="owl:inverseOf" href="#advances">ibis:advances</a></dd>
+          <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <h3>Mereological relation</h3>
+      <p>While all <acronym title="Issue-based Information System">IBIS</acronym> terms inherit the semantic relations from <acronym title="Simple Knowledge Organization System">SKOS</acronym>, the <acronym title="Issue-based Information System">IBIS</acronym> paper specifies mereological relations peculiar to issues.</p>
       <div id="specializes" about="[ibis:specializes]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">specializes</h3>
+        <h4 property="rdfs:label">specializes</h4>
         <p property="rdfs:comment">The subject issue is a more specific form of the object.</p>
+        <blockquote class="note">
+          <p property="skos:note">The super-property skos:broader asserts that the object is broader than the subject, while the subject of ibis:specializes is more specific than the object.</p>
+        </blockquote>
         <dl>
           <dt>Domain:</dt>
           <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
           <dt>Range:</dt>
           <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a></dd>
           <dt>Inverse of:</dt>
           <dd><a rel="owl:inverseOf" href="#generalizes">ibis:generalizes</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="generalizes" about="[ibis:generalizes]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">generalizes</h3>
+        <h4 property="rdfs:label">generalizes</h4>
         <p property="rdfs:comment">The subject issue is a more generic form of the object.</p>
+        <blockquote class="note">
+          <p property="skos:note">The super-property skos:narrower asserts that the object is narrower than the subject, while the subject of ibis:generalizes is more general than the object.</p>
+        </blockquote>
         <dl>
           <dt>Domain:</dt>
           <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
           <dt>Range:</dt>
           <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a></dd>
           <dt>Inverse of:</dt>
           <dd><a rel="owl:inverseOf" href="#specializes">ibis:specializes</a></dd>
         </dl>
@@ -156,7 +158,7 @@
       </div>
       <h3>Replacement</h3>
       <div id="replaces" about="[ibis:replaces]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">replaces</h3>
+        <h4 property="rdfs:label">replaces</h4>
         <p property="rdfs:comment">Indicates when an issue replaces another issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -171,7 +173,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="replaced-by" about="[ibis:replaced-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">replaced by</h3>
+        <h4 property="rdfs:label">replaced by</h4>
         <p property="rdfs:comment">Indicates when an issue is replaced by another issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -187,24 +189,24 @@
       </div>
       <h3>Questions</h3>
       <div id="questions" about="[ibis:questions]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">questions</h3>
+        <h4 property="rdfs:label">questions</h4>
         <p property="rdfs:comment">Indicates an issue that raises doubt on a belief.</p>
         <dl>
           <dt>Domain:</dt>
           <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
           <dt>Range:</dt>
-          <dd><a rel="rdfs:range" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Inverse of:</dt>
           <dd><a rel="owl:inverseOf" href="#questioned-by">ibis:questioned-by</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="questioned-by" about="[ibis:questioned-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">questioned by</h3>
+        <h4 property="rdfs:label">questioned by</h4>
         <p property="rdfs:comment">Indicates a belief called into question by an issue.</p>
         <dl>
           <dt>Domain:</dt>
-          <dd><a rel="rdfs:domain" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Range:</dt>
           <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
           <dt>Inverse of:</dt>
@@ -214,11 +216,11 @@
       </div>
       <h3>Suggestions</h3>
       <div id="suggests" about="[ibis:suggests]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">suggests</h3>
+        <h4 property="rdfs:label">suggests</h4>
         <p property="rdfs:comment">Indicates when the subject belief suggests the object issue.</p>
         <dl>
           <dt>Domain:</dt>
-          <dd><a rel="rdfs:domain" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Range:</dt>
           <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
           <dt>Inverse of:</dt>
@@ -227,13 +229,13 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="suggested-by" about="[ibis:suggested-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">suggested by</h3>
+        <h4 property="rdfs:label">suggested by</h4>
         <p property="rdfs:comment">Indicates when the subject issue is suggested by the object belief.</p>
         <dl>
           <dt>Domain:</dt>
           <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
           <dt>Range:</dt>
-          <dd><a rel="rdfs:range" href="#Belief">ibis:Belief</a></dd>
+          <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Inverse of:</dt>
           <dd><a rel="owl:inverseOf" href="#suggests">ibis:suggests</a></dd>
         </dl>
@@ -241,7 +243,7 @@
       </div>
       <h3>Response</h3>
       <div id="response" about="[ibis:response]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">response</h3>
+        <h4 property="rdfs:label">response</h4>
         <p property="rdfs:comment">Indicates a position that responds to the subject issue.</p>
         <dl>
           <dt>Domain:</dt>
@@ -254,7 +256,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="responds-to" about="[ibis:responds-to]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">responds to</h3>
+        <h4 property="rdfs:label">responds to</h4>
         <p property="rdfs:comment">Indicates an issue to which the subject position responds.</p>
         <dl>
           <dt>Domain:</dt>
@@ -268,7 +270,7 @@
       </div>
       <h3>Argumentation</h3>
       <div id="supports" about="[ibis:supports]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">supports</h3>
+        <h4 property="rdfs:label">supports</h4>
         <p property="rdfs:comment">Indicates a subject argument that supports an object position.</p>
         <dl>
           <dt>Domain:</dt>
@@ -281,7 +283,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="supported-by" about="[ibis:supported-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">supported by</h3>
+        <h4 property="rdfs:label">supported by</h4>
         <p property="rdfs:comment">Indicates a subject position supported by an object argument.</p>
         <dl>
           <dt>Domain:</dt>
@@ -294,7 +296,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="opposes" about="[ibis:opposes]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">opposes</h3>
+        <h4 property="rdfs:label">opposes</h4>
         <p property="rdfs:comment">Indicates a subject argument that opposes an object position.</p>
         <dl>
           <dt>Domain:</dt>
@@ -307,7 +309,7 @@
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
       <div id="opposed-by" about="[ibis:opposed-by]" typeof="owl:ObjectProperty">
-        <h3 property="rdfs:label">opposed by</h3>
+        <h4 property="rdfs:label">opposed by</h4>
         <p property="rdfs:comment">Indicates a subject position opposed by an object argument.</p>
         <dl>
           <dt>Domain:</dt>
@@ -319,6 +321,14 @@
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
+    </div>
+    <div>
+      <h2>References</h2>
+      <ul>
+        <li><a rel="external rdfs:seeAlso" type="application/pdf" href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"><span property="dct:title">Issues as Elements of Information Systems</span> (<span property="dct:creator" content="Werner Kunz">Kunz</span> and <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span property="dct:date">1970</span>)</a></li>
+        <li><a type="application/pdf" rel="external rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf"><span property="dct:title">gIBIS: a hypertext tool for exploratory policy discussion</span> (<span property="dct:creator" content="Jeff Conklin">Conklin</span> and <span property="dct:creator" content="Michael L. Begeman">Begeman</span>, <span property="dct:date">1988</span>)</a></li>
+        <li><a rel="external rdfs:seeAlso" href="http://en.wikipedia.org/wiki/Issue-Based_Information_System">Wikipedia entry for <acronym title="Issue-based information system">IBIS</acronym></a></li>
+      </ul>
     </div>
   </body>
 </html>
