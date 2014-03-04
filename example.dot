@@ -2,11 +2,13 @@ digraph {
     graph [bgcolor=transparent];
     node [shape=box,color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
     edge [color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    owl_Thing [label="owl:Thing", style=dashed];
     foaf_Agent [label="foaf:Agent", style=dashed];
     skos_Concept [label="skos:Concept", style=dashed];
     ibis_Issue [label="ibis:Issue"];
     ibis_Position [label="ibis:Position"];
     ibis_Argument [label="ibis:Argument"];
+    
     subgraph {
         edge [fontsize=10,concentrate=true];
         ibis_Issue -> ibis_Issue [label="ibis:specializes"];
@@ -15,10 +17,10 @@ digraph {
         //ibis_Issue -> ibis_Issue [label="ibis:generalizes"];
         
         subgraph {
-            edge [label="rdfs:subClassOf"];
+            edge [label="rdfs:subClassOf", style=dashed];
             ibis_Issue -> skos_Concept;
             ibis_Position -> skos_Concept;
-            ibis_Argument -> skos_Concept;
+            ibis_Argument -> ibis_Issue;
         }
         
         subgraph {
@@ -40,6 +42,7 @@ digraph {
             ibis_Argument -> ibis_Issue;
             ibis_Issue    -> ibis_Issue;
         }
+        ibis_Issue -> owl_Thing [label="ibis:concerns"];
         ibis_Position -> ibis_Issue [label="ibis:responds-to"];
         ibis_Argument -> ibis_Position [label="ibis:supports"];
         ibis_Argument -> ibis_Position [label="ibis:opposes"];
