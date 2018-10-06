@@ -23,14 +23,15 @@
     <div about="#" typeof="owl:Ontology">
       <dl>
         <dt>Author</dt>
-        <dd><a rel="external dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
+        <dd><a rel="external dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
         <dt>Version</dt>
-        <dd property="owl:versionInfo">0.2</dd>
+        <dd property="owl:versionInfo">0.3</dd>
         <dt>Created</dt>
-        <dd property="dct:created" datatype="xsd:dateTime" content="2012-12-11T22:22:53-0800">December 11, 2012</dd>
+        <dd property="dct:created" datatype="xsd:dateTime" content="2012-12-11T22:22:53-08:00">December 11, 2012</dd>
         <dt>Updated</dt>
-        <dd property="dct:modified" datatype="xsd:dateTime" content="2012-12-12T16:04:50-0800">December 12, 2012</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2012-12-12T16:04:50-08:00">December 12, 2012</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2014-02-24T21:14:13Z">February 24, 2014</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2018-02-22T03:39:14Z">February 22, 2018</dd>
         <dt>Namespace URI</dt>
         <dd><a href="#">https://privatealpha.com/ontology/ibis/1#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
@@ -145,6 +146,15 @@
           <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <!--<dt>Disjoint with:</dt>
           <dd><a rel="owl:disjointWith" href="#Position">ibis:Position</a></dd>-->
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <div id="Network" about="[ibis:Network]" typeof="owl:Class">
+        <h4 property="rdfs:label">Network</h4>
+        <p property="rdfs:comment">A network of issues, positions, and arguments.</p>
+        <dl>
+          <dt>Subclass of:</dt>
+          <dd><a rel="external rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
