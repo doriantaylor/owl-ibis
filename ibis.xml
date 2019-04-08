@@ -25,13 +25,14 @@
         <dt>Author</dt>
         <dd><a rel="external dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
         <dt>Version</dt>
-        <dd property="owl:versionInfo">0.3</dd>
+        <dd property="owl:versionInfo" datatype="xsd:string">0.4</dd>
         <dt>Created</dt>
         <dd property="dct:created" datatype="xsd:dateTime" content="2012-12-11T22:22:53-08:00">December 11, 2012</dd>
         <dt>Updated</dt>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2012-12-12T16:04:50-08:00">December 12, 2012</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2014-02-24T21:14:13Z">February 24, 2014</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2018-02-22T03:39:14Z">February 22, 2018</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2019-03-24T22:37:22Z">March 24, 2019</dd>
         <dt>Namespace URI</dt>
         <dd><a href="#">https://privatealpha.com/ontology/ibis/1#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
@@ -204,10 +205,25 @@
           <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
           <dt>Range:</dt>
           <dd><a rel="external rdfs:range" href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></dd>
+          <dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#concern-of">ibis:concern-of</a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </div>
-      <h3>Mereological relation</h3>
+      <div id="concern-of" about="[ibis:concern-of]" typeof="owl:ObjectProperty">
+        <h4 property="rdfs:label">concern-of</h4>
+        <p property="rdfs:comment">The subject is an issue concerning the object, which can be any resource.</p>
+        <dl>
+          <dt>Domain:</dt>
+          <dd><a rel="external rdfs:range" href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></dd>
+          <dt>Range:</dt>
+          <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
+          <dt>Inverse of:</dt>
+          <dd><a rel="owl:inverseOf" href="#concerns">ibis:concerns</a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </div>
+      <h3>Subordination and Superordination</h3>
       <p>While all <acronym title="Issue-based Information System">IBIS</acronym> terms inherit the semantic relations from <acronym title="Simple Knowledge Organization System">SKOS</acronym>, the <acronym title="Issue-based Information System">IBIS</acronym> paper specifies mereological relations peculiar to Issues. I have relaxed the constraint specified in the paper, such that these relations are now merely vestigial.</p>
       <div id="specializes" about="[ibis:specializes]" typeof="owl:ObjectProperty">
         <h4 property="rdfs:label">specializes</h4>
@@ -289,6 +305,8 @@
           <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
           <dt>Range:</dt>
           <dd><a rel="external rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="rdfs:subPropertyOf" href="#suggested-by">ibis:suggested-by</a></dd>
           <dt>Inverse of:</dt>
           <dd><a rel="owl:inverseOf" href="#questioned-by">ibis:questioned-by</a></dd>
         </dl>
@@ -302,6 +320,8 @@
           <dd><a rel="external rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
           <dt>Range:</dt>
           <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
+          <dt>Sub-property of:</dt>
+          <dd><a rel="rdfs:subPropertyOf" href="#suggests">ibis:suggests</a></dd>
           <dt>Inverse of:</dt>
           <dd><a rel="owl:inverseOf" href="#questions">ibis:questions</a></dd>
         </dl>
@@ -422,9 +442,12 @@
       <p>I initially created the <a href="#generalizes">generalizes</a>, <a href="#specializes">specializes</a>, <a href="#replaces">replaces</a>, and <a href="#replaced-by">replaced-by</a> predicates to correspond to the paper, but again, through use, it became evident that the constraint that only an <a href="#Issue">Issue</a> could make use of them made little sense.</p>
       <p>Without this constraint, the <a href="#generalizes">generalizes</a>/<a href="#specializes">specializes</a> pair are redundant versus their super-properties, <a rel="external" href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a> and <a rel="external" href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a>. I'm keeping them around, though, as equivalent properties, because of the lexical ambiguity in the SKOS terms. I also added same-class constraints, but against <a rel="external" href="http://www.w3.org/2004/02/skos/core#broaderTransitive">skos:broaderTransitive</a> and <a rel="external" href="http://www.w3.org/2004/02/skos/core#narrowerTransitive">skos:narrowerTransitive</a> to reintroduce the potential for transitivity.</p>
       <p>I decided to retain <a href="#replaces">replaces</a> and <a href="#replaced-by">replaced-by</a> as sub-properties of their Dublin Core counterparts, though only to reinforce them as object properties over the domain and range of <a rel="external" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>.</p>
-      <h3>Future Directions</h3>
-      <p>Other <acronym title="Issue-based information system">IBIS</acronym> implementations have an explicit concept of a <em>Question</em>, which I considered but ultimately left out. There is already a discontinuity between the grammatical form of a question and its purpose in ordinary dialogue&#x2014;i.e., are we actually asking for information or is the question merely rhetorical. We don't need to confuse things further by cementing that discontinuity into formal language.</p>
-      <p>There is also the natural tendency that once we have agreed on a particular <a href="#Position">Position</a>, that we commit it to action. It is therefore tempting to extend the <acronym title="Issue-based information system">IBIS</acronym> vocabulary into some sort of project planning apparatus. I have chosen instead to leave this vocabulary alone if possible, and extend it through <a about="#" rel="rdfs:seeAlso" href="/ontology/process-model/1#">a process model ontology</a>.</p>
+      <p>After enough time in the saddle, I am fairly convinced that <a href="#questions">questions</a> and <a href="#suggests">suggests</a> are roughly inversely related, with <dfn>questions</dfn> being a stronger form of <a href="#suggested-by">suggested-by</a>, and have such made the former a subproperty of the latter.</p>
+      <div>
+        <h3>Future Directions</h3>
+        <p>Other <acronym title="Issue-based information system">IBIS</acronym> implementations have an explicit concept of a <em>Question</em>, which I considered but ultimately left out. There is already a discontinuity between the grammatical form of a question and its purpose in ordinary dialogue&#x2014;i.e., are we actually asking for information or is the question merely rhetorical. We don't need to confuse things further by cementing that discontinuity into formal language.</p>
+        <p>There is also the natural tendency that once we have agreed on a particular <a href="#Position">Position</a>, that we commit it to action. It is therefore tempting to extend the <acronym title="Issue-based information system">IBIS</acronym> vocabulary into some sort of project planning apparatus. I have chosen instead to leave this vocabulary alone if possible, and extend it through <a about="#" rel="rdfs:seeAlso" href="/ontology/process-model/1#">a process model ontology</a>.</p>
+      </div>
     </div>
     <div>
       <h2>References</h2>
