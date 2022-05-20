@@ -10,12 +10,12 @@
       xmlns:bibo="http://purl.org/ontology/bibo/"
       xmlns:foaf="http://xmlns.com/foaf/0.1/"
       xmlns:vann="http://purl.org/vocab/vann/"
-      xmlns:ibis="https://privatealpha.com/ontology/ibis/1#"
-      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# owl: http://www.w3.org/2002/07/owl# dct: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# bibo: http://purl.org/ontology/bibo/ foaf: http://xmlns.com/foaf/0.1/ vann: http://purl.org/vocab/vann/ ibis: https://privatealpha.com/ontology/ibis/1#"
+      xmlns:ibis="https://vocab.methodandstructure.com/ibis#"
+      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# owl: http://www.w3.org/2002/07/owl# dct: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# bibo: http://purl.org/ontology/bibo/ foaf: http://xmlns.com/foaf/0.1/ vann: http://purl.org/vocab/vann/ ibis: https://vocab.methodandstructure.com/ibis#"
       xml:lang="en" vocab="http://www.w3.org/1999/xhtml/vocab#">
   <head>
     <title about="#" property="dct:title">IBIS (bis) Vocabulary</title>
-    <base href="https://privatealpha.com/ontology/ibis/1"/>
+    <base href="https://vocab.methodandstructure.com/ibis"/>
     <meta about="#" property="rdfs:label" content="IBIS"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
     <link rel="xhv:up" href="/ontology/"/>
@@ -36,14 +36,14 @@
         <dd property="dct:modified" datatype="xsd:dateTime" content="2018-02-22T03:39:14Z">February 22, 2018</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2019-03-24T22:37:22Z">March 24, 2019</dd>
         <dt>Namespace URI</dt>
-        <dd><a href="#">https://privatealpha.com/ontology/ibis/1#</a></dd>
+        <dd><a href="#">https://vocab.methodandstructure.com/ibis#</a></dd>
         <dt>Preferred Namespace Prefix</dt>
         <dd about="#" property="vann:preferredNamespacePrefix" datatype="xsd:string">ibis</dd>
       </dl>
       <p property="rdfs:comment">This document specifies a vocabulary for describing an IBIS (issue-based information system).</p>
       <p>The purpose of this vocabulary is to express the necessary semantics for the internal representation of&#x2014;and interchange between&#x2014;collaborative software systems that facilitate structured argumentation and issue-based reasoning. This vocabulary augments the semantic elements of <a about="#" type="application/pdf" rel="rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf">the gIBIS paper</a> by reusing components from, and thus integrating it into the Semantic Web.</p>
       <figure>
-        <object style="display: block; margin: auto; max-width: 100%; height: auto" data="example.svg"><img src="example" alt=""/></object>
+        <object style="display: block; margin: auto; max-width: 100%; height: auto" data="ibis-classes.svg"><img src="ibis-classes" alt=""/></object>
       </figure>
       <p id="explanation">This document was <a rel="rdfs:seeAlso" href="http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="http://hyperdata.org/xmlns/ibis/" rel="dct:creator" href="http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to supplant the original after several attempts to reach Mr. Ayers. It differs from the Ayers version primarily in that it is an <a rel="owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <acronym title="Simple Knowledge Organization System">SKOS</acronym></a>, due to the suitability of the <a rel="dct:references" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <acronym title="Issue-Based Information System">IBIS</acronym> types.</p>
       <p>As with the other vocabularies on this site, this prose version is canonical, and the <a rel="rdfs:seeAlso" href="1.rdf">RDF/XML</a> and <a rel="rdfs:seeAlso" href="1.n3">N3/Turtle</a> versions are derived from it.</p>

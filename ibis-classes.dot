@@ -1,7 +1,7 @@
 digraph {
     graph [bgcolor=transparent];
-    node [shape=box,color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
-    edge [color="#eeeeee",fontcolor="#eeeeee",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    node [shape=box,color="#000000",fontcolor="#000000",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+    edge [color="#000000",fontcolor="#000000",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
     owl_Thing          [label="owl:Thing", style=dashed];
     foaf_Agent         [label="foaf:Agent", style=dashed];
     skos_Concept       [label="skos:Concept", style=dashed];
