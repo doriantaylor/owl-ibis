@@ -46,8 +46,9 @@ suitability of the
 ancestor for expressing the fundamental IBIS types.
 
 As with the other vocabularies on this site, this prose version is
-canonical, and the [RDF/XML](https://vocab.methodandstructure.com/1.rdf)
-and [N3/Turtle](https://vocab.methodandstructure.com/1.n3) versions are
+canonical, and the
+[RDF/XML](https://vocab.methodandstructure.com/ibis.rdf) and
+[N3/Turtle](https://vocab.methodandstructure.com/ibis.n3) versions are
 derived from it.
 
 </div>
@@ -667,7 +668,7 @@ commit it to action. It is therefore tempting to extend the IBIS
 vocabulary into some sort of project planning apparatus. I have chosen
 instead to leave this vocabulary alone if possible, and extend it
 through [a process model
-ontology](https://vocab.methodandstructure.com/ontology/process-model/1#).
+ontology](https://vocab.methodandstructure.com/process-model#).
 
 </div>
 

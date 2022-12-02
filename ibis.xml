@@ -18,7 +18,7 @@
     <base href="https://vocab.methodandstructure.com/ibis"/>
     <meta about="#" property="rdfs:label" content="IBIS"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
-    <link rel="xhv:up" href="/ontology/"/>
+    <link rel="xhv:up" href="/"/>
   </head>
   <body typeof="bibo:Webpage">
     <h1>The IBIS (<a href="#explanation">bis</a>) Vocabulary</h1>
@@ -46,7 +46,7 @@
         <object style="display: block; margin: auto; max-width: 100%; height: auto" data="ibis-classes.svg"><img src="ibis-classes" alt=""/></object>
       </figure>
       <p id="explanation">This document was <a rel="rdfs:seeAlso" href="http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="http://hyperdata.org/xmlns/ibis/" rel="dct:creator" href="http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to supplant the original after several attempts to reach Mr. Ayers. It differs from the Ayers version primarily in that it is an <a rel="owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <acronym title="Simple Knowledge Organization System">SKOS</acronym></a>, due to the suitability of the <a rel="dct:references" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <acronym title="Issue-Based Information System">IBIS</acronym> types.</p>
-      <p>As with the other vocabularies on this site, this prose version is canonical, and the <a rel="rdfs:seeAlso" href="1.rdf">RDF/XML</a> and <a rel="rdfs:seeAlso" href="1.n3">N3/Turtle</a> versions are derived from it.</p>
+      <p>As with the other vocabularies on this site, this prose version is canonical, and the <a rel="rdfs:seeAlso" href="ibis.rdf">RDF/XML</a> and <a rel="rdfs:seeAlso" href="ibis.n3">N3/Turtle</a> versions are derived from it.</p>
     </section>
     <section>
       <h2>Classes</h2>
@@ -464,7 +464,7 @@
       <section>
         <h3>Future Directions</h3>
         <p>Other <acronym title="Issue-based information system">IBIS</acronym> implementations have an explicit concept of a <em>Question</em>, which I considered but ultimately left out. There is already a discontinuity between the grammatical form of a question and its purpose in ordinary dialogue&#x2014;i.e., are we actually asking for information or is the question merely rhetorical. We don't need to confuse things further by cementing that discontinuity into formal language.</p>
-        <p>There is also the natural tendency that once we have agreed on a particular <a href="#Position">Position</a>, that we commit it to action. It is therefore tempting to extend the <acronym title="Issue-based information system">IBIS</acronym> vocabulary into some sort of project planning apparatus. I have chosen instead to leave this vocabulary alone if possible, and extend it through <a about="#" rel="rdfs:seeAlso" href="/ontology/process-model/1#">a process model ontology</a>.</p>
+        <p>There is also the natural tendency that once we have agreed on a particular <a href="#Position">Position</a>, that we commit it to action. It is therefore tempting to extend the <acronym title="Issue-based information system">IBIS</acronym> vocabulary into some sort of project planning apparatus. I have chosen instead to leave this vocabulary alone if possible, and extend it through <a about="#" rel="rdfs:seeAlso" href="/process-model#">a process model ontology</a>.</p>
       </section>
     </section>
     <section>
