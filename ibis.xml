@@ -27,7 +27,7 @@
         <dt>Author</dt>
         <dd><a rel="dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
         <dt>Version</dt>
-        <dd property="owl:versionInfo" datatype="xsd:string">0.4</dd>
+        <dd property="owl:versionInfo" datatype="xsd:string">0.5</dd>
         <dt>Created</dt>
         <dd property="dct:created" datatype="xsd:dateTime" content="2012-12-11T22:22:53-08:00">December 11, 2012</dd>
         <dt>Updated</dt>
@@ -35,89 +35,100 @@
         <dd property="dct:modified" datatype="xsd:dateTime" content="2014-02-24T21:14:13Z">February 24, 2014</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2018-02-22T03:39:14Z">February 22, 2018</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2019-03-24T22:37:22Z">March 24, 2019</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2023-12-18T02:25:31Z">December 18, 2023</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2024-01-05T04:05:24Z">January 4, 2024</dd>
         <dt>Namespace URI</dt>
-        <dd><a href="#">https://vocab.methodandstructure.com/ibis#</a></dd>
+        <dd><a href="#"><code>https://vocab.methodandstructure.com/ibis#</code></a></dd>
         <dt>Preferred Namespace Prefix</dt>
-        <dd about="#" property="vann:preferredNamespacePrefix" datatype="xsd:string">ibis</dd>
+        <dd><code about="#" property="vann:preferredNamespacePrefix" datatype="xsd:string">ibis</code></dd>
       </dl>
       <p property="rdfs:comment">This document specifies a vocabulary for describing an IBIS (issue-based information system).</p>
       <p>The purpose of this vocabulary is to express the necessary semantics for the internal representation of&#x2014;and interchange between&#x2014;collaborative software systems that facilitate structured argumentation and issue-based reasoning. This vocabulary augments the semantic elements of <a about="#" type="application/pdf" rel="rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf">the gIBIS paper</a> by reusing components from, and thus integrating it into the Semantic Web.</p>
-      <figure>
-        <object style="display: block; margin: auto; max-width: 100%; height: auto" data="ibis-classes.svg"><img src="ibis-classes" alt=""/></object>
-      </figure>
-      <p id="explanation">This document was <a rel="rdfs:seeAlso" href="http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="http://hyperdata.org/xmlns/ibis/" rel="dct:creator" href="http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="dct:creator" href="http://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to supplant the original after several attempts to reach Mr. Ayers. It differs from the Ayers version primarily in that it is an <a rel="owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <acronym title="Simple Knowledge Organization System">SKOS</acronym></a>, due to the suitability of the <a rel="dct:references" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <acronym title="Issue-Based Information System">IBIS</acronym> types.</p>
+      <p id="explanation">This document was <a rel="rdfs:seeAlso" href="https://web.archive.org/web/20120606063823/http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="https://web.archive.org/web/20120606063823/http://hyperdata.org/xmlns/ibis/" rel="dct:creator" href="https://web.archive.org/web/20130113103138/http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to replace it. It differs from the Ayers version primarily in that it is an <a rel="owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <acronym title="Simple Knowledge Organization System">SKOS</acronym></a>, due to the suitability of the <a rel="dct:references" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <acronym title="Issue-Based Information System">IBIS</acronym> types.</p>
       <p>As with the other vocabularies on this site, this prose version is canonical, and the <a rel="rdfs:seeAlso" href="ibis.rdf">RDF/XML</a> and <a rel="rdfs:seeAlso" href="ibis.n3">N3/Turtle</a> versions are derived from it.</p>
     </section>
     <section>
       <h2>Classes</h2>
+      <figure>
+        <object style="display: block; margin: auto; max-width: 100%; height: auto" data="ibis-classes.svg"><img src="ibis-classes" alt=""/></object>
+      </figure>
+      <section id="Entity" about="[ibis:Entity]" typeof="owl:Class">
+        <h3><code property="rdfs:label">Entity</code></h3>
+        <p property="rdfs:comment"><code>ibis:Entity</code> is the abstract superclass of from which the more specific entities are derived.</p>
+        <dl>
+          <dt>Subclass of:</dt>
+          <dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </section>
       <section id="Issue" about="[ibis:Issue]" typeof="owl:Class">
-        <h3 property="rdfs:label">Issue</h3>
+        <h3><code property="rdfs:label">Issue</code></h3>
         <p property="rdfs:comment">An Issue is a state of affairs, claimed by one or more Agents to either be a misfit itself, or affecting some other Issue or Position.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+          <dd><a rel="rdfs:subClassOf" href="#Entity"><code>ibis:Entity</code></a></dd>
           <dt>Property restrictions:</dt>
           <dd rel="rdfs:subClassOf">
             <span id="generalizes-issue" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#narrowerTransitive">skos:narrowerTransitive</a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue">ibis:Issue</a>
+              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#narrowerTransitive"><code>skos:narrowerTransitive</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue"><code>ibis:Issue</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="specializes-issue" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#broaderTransitive">skos:broaderTransitive</a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue">ibis:Issue</a>
+              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#broaderTransitive"><code>skos:broaderTransitive</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue"><code>ibis:Issue</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="replaces-issue" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="#replaces">ibis:replaces</a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue">ibis:Issue</a>
+              <a rel="owl:onProperty" href="#replaces"><code>ibis:replaces</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue"><code>ibis:Issue</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="replaced-by-issue" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="#replaced-by">ibis:replaced-by</a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue">ibis:Issue</a>
+              <a rel="owl:onProperty" href="#replaced-by"><code>ibis:replaced-by</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Issue"><code>ibis:Issue</code></a>
             </span>
           </dd>
           <dt>Disjoint with:</dt>
-          <dd><a rel="owl:disjointWith" href="#Position">ibis:Position</a></dd>
+          <dd><a rel="owl:disjointWith" href="#Position"><code>ibis:Position</code></a></dd>
           <!--<dd><a rel="owl:disjointWith" href="#Argument">ibis:Argument</a></dd>-->
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </section>
       <section id="Position" about="[ibis:Position]" typeof="owl:Class">
-        <h3 property="rdfs:label">Position</h3>
+        <h3><code property="rdfs:label">Position</code></h3>
         <p xml:lang="en" property="rdfs:comment">A Position asserts a moral, ethical, pragmatic, or similar kind of assertion, typically identifying what, if anything, should be done about an Issue.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+          <dd><a rel="rdfs:subClassOf" href="#Entity"><code>ibis:Entity</code></a></dd>
           <dt>Property restrictions:</dt>
           <dd rel="rdfs:subClassOf">
             <span id="generalizes-position" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#narrowerTransitive">skos:narrowerTransitive</a> &#x2208; <a rel="owl:allValuesFrom" href="#Position">ibis:Position</a>
+              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#narrowerTransitive"><code>skos:narrowerTransitive</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Position"><code>ibis:Position</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="specializes-position" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#broaderTransitive">skos:broaderTransitive</a> &#x2208; <a rel="owl:allValuesFrom" href="#Position">ibis:Position</a>
+              <a rel="owl:onProperty" href="http://www.w3.org/2004/02/skos/core#broaderTransitive"><code>skos:broaderTransitive</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Position"><code>ibis:Position</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="replaces-position" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="#replaces">ibis:replaces</a> &#x2208; <a rel="owl:allValuesFrom" href="#Position">ibis:Position</a>
+              <a rel="owl:onProperty" href="#replaces"><code>ibis:replaces</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Position"><code>ibis:Position</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="replaced-by-position" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="#replaced-by">ibis:replaced-by</a> &#x2208; <a rel="owl:allValuesFrom" href="#Position">ibis:Position</a>
+              <a rel="owl:onProperty" href="#replaced-by"><code>ibis:replaced-by</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Position"><code>ibis:Position</code></a>
             </span>
           </dd>
           <dt>Disjoint with:</dt>
-          <dd><a rel="owl:disjointWith" href="#Issue">ibis:Issue</a></dd>
-          <dd><a rel="owl:disjointWith" href="#Argument">ibis:Argument</a></dd>
+          <dd><a rel="owl:disjointWith" href="#Issue"><code>ibis:Issue</code></a></dd>
+          <dd><a rel="owl:disjointWith" href="#Argument"><code>ibis:Argument</code></a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </section>
       <section id="Argument" about="[ibis:Argument]" typeof="owl:Class">
-        <h3 property="rdfs:label">Argument</h3>
+        <h3><code property="rdfs:label">Argument</code></h3>
         <p property="rdfs:comment">An Argument is a type of Issue that explicitly supports or refutes a Position.</p>
         <blockquote>
           <p property="skos:usageNote">An Argument need not only relate in scope to another Argument, but it must only be replaced by another argument.</p>
@@ -125,106 +136,141 @@
         <dl>
           <dt>Subclass of:</dt>
           <!--<dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>-->
-          <dd><a rel="rdfs:subClassOf" href="#Issue">ibis:Issue</a></dd>
+          <dd><a rel="rdfs:subClassOf" href="#Issue"><code>ibis:Issue</code></a></dd>
           <dt>Property restrictions:</dt>
           <dd rel="rdfs:subClassOf">
             <span id="replaces-argument" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="#replaces">ibis:replaces</a> &#x2208; <a rel="owl:allValuesFrom" href="#Argument">ibis:Argument</a>
+              <a rel="owl:onProperty" href="#replaces"><code>ibis:replaces</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Argument"><code>ibis:Argument</code></a>
             </span>
           </dd>
           <dd rel="rdfs:subClassOf">
             <span id="replaced-by-argument" typeof="owl:Restriction">
-              <a rel="owl:onProperty" href="#replaced-by">ibis:replaced-by</a> &#x2208; <a rel="owl:allValuesFrom" href="#Argument">ibis:Argument</a>
+              <a rel="owl:onProperty" href="#replaced-by"><code>ibis:replaced-by</code></a> &#x2208; <a rel="owl:allValuesFrom" href="#Argument"><code>ibis:Argument</code></a>
             </span>
           </dd>
           <dt>Disjoint with:</dt>
           <!--<dd><a rel="owl:disjointWith" href="#Issue">ibis:Issue</a></dd>-->
-          <dd><a rel="owl:disjointWith" href="#Position">ibis:Position</a></dd>
+          <dd><a rel="owl:disjointWith" href="#Position"><code>ibis:Position</code></a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </section>
       <section id="Invariant" about="[ibis:Invariant]" typeof="owl:Class">
-        <h3 property="rdfs:label">Invariant</h3>
-        <p property="rdfs:comment">An Issue or Position can be marked Invariant to denote that it has been deemed outside of the influence of the Agents in the system, i.e., something to be steered around.</p>
+        <h3><code property="rdfs:label">Invariant</code></h3>
+        <p property="rdfs:comment">An <code>ibis:Entity</code> can be marked <code>ibis:Invariant</code> to denote that it has been deemed outside of the influence of the agents in the system, i.e., something to be steered around.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+          <dd><a rel="rdfs:subClassOf" href="#Entity"><code>ibis:Entity</code></a></dd>
           <!--<dt>Disjoint with:</dt>
               <dd><a rel="owl:disjointWith" href="#Position">ibis:Position</a></dd>-->
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </section>
       <section id="Network" about="[ibis:Network]" typeof="owl:Class">
-        <h3 property="rdfs:label">Network</h3>
+        <h3><code property="rdfs:label">Network</code></h3>
         <p property="rdfs:comment">A network of issues, positions, and arguments.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a></dd>
+          <dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#ConceptScheme"><code>skos:ConceptScheme</code></a></dd>
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </section>
     </section>
     <section>
       <h2>Properties</h2>
+      <figure>
+        <object type="image/svg+xml" data="ibis-properties.svg">
+          <img src="ibis-properties" alt=""/>
+        </object>
+      </figure>
       <section>
         <h3>Agency</h3>
         <p>Since argumentation doesn't happen in a vacuum, it is important to provide a mechanism for connecting agents (ideally people) to the process. While the <a about="#" rel="rdfs:seeAlso" href="http://dublincore.org/documents/dcmi-terms/">Dublin Core</a> and <a about="#" rel="rdfs:seeAlso" href="http://www.w3.org/TR/prov-o/">provenance ontologies</a> are available for expressing authorship, there exist other agent-related considerations.</p>
         <p>These terms are extensions to the original <acronym title="issue-based information system">IBIS</acronym> model.</p>
         <section id="endorses" about="[ibis:endorses]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">endorses</h4>
+          <h4><code property="rdfs:label">endorses</code></h4>
           <p property="rdfs:comment">An Agent can endorse a concept without having initially mentioned or advanced it, and without any additional comment.</p>
-          <blockquote class="note">
+          <aside role="note">
             <p property="skos:note">This term, along with ibis:endorsed-by, enables an Agent to signal its agreement with a concept. To signal disagreement, explain why with an ibis:Argument that ibis:opposes the concept.</p>
-          </blockquote>
+          </aside>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
+            <dd><a rel="rdfs:domain" href="http://xmlns.com/foaf/0.1/Agent"><code>foaf:Agent</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#endorsed-by">ibis:endorsed-by</a></dd>
+            <dd><a rel="owl:inverseOf" href="#endorsed-by"><code>ibis:endorsed-by</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="endorsed-by" about="[ibis:endorsed-by]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">endorsed by</h4>
+          <h4><code property="rdfs:label">endorsed by</code></h4>
           <p property="rdfs:comment">A concept can be endorsed by an Agent without said Agent having mentioned or advanced it initially, and without any additional comment.</p>
-          <blockquote class="note">
+          <aside role="note">
             <p property="skos:note">This term, along with ibis:endorses, enables an Agent to signal its agreement with a concept. To signal disagreement, explain why with an ibis:Argument that ibis:opposes the concept.</p>
-          </blockquote>
+          </aside>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a></dd>
+            <dd><a rel="rdfs:range" href="http://xmlns.com/foaf/0.1/Agent"><code>foaf:Agent</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#endorses">ibis:endorses</a></dd>
+            <dd><a rel="owl:inverseOf" href="#endorses"><code>ibis:endorses</code></a></dd>
+          </dl>
+          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+        </section>
+      </section>
+      <section>
+        <h3>Relations to Concepts</h3>
+        <p>This <abbr>IBIS</abbr> vocabulary is based on <abbr>SKOS</abbr>, and therefore has a close relationship with it. These properties connect IBIS to with skos</p>
+        <section id="concepts" about="[ibis:concepts]" typeof="owl:ObjectProperty">
+          <h4><code property="rdfs:label">concepts</code></h4>
+          <p property="rdfs:comment">This relates a concept scheme to the <abbr>IBIS</abbr> network.</p>
+          <dl>
+            <dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="#Network"><code>ibis:Network</code></a></dd>
+            <dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#ConceptScheme"><code>skos:ConceptScheme</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/requires"><code>dct:requires</code></a></dd>
+          </dl>
+          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+        </section>
+        <section id="main-concepts" about="[ibis:main-concepts]" typeof="owl:ObjectProperty owl:FunctionalProperty">
+          <h4><code property="rdfs:label">main-concepts</code></h4>
+          <p property="rdfs:comment">This relates the <em>preferred</em> concept scheme to the <abbr>IBIS</abbr> network.</p>
+          <dl>
+            <dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="#Network"><code>ibis:Network</code></a></dd>
+            <dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#ConceptScheme"><code>skos:ConceptScheme</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="#concepts"><code>ibis:concepts</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="concerns" about="[ibis:concerns]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">concerns</h4>
+          <h4><code property="rdfs:label">concerns</code></h4>
           <p property="rdfs:comment">The subject is an issue concerning the object, which can be any resource.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></dd>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#concern-of">ibis:concern-of</a></dd>
+            <dd><a rel="owl:inverseOf" href="#concern-of"><code>ibis:concern-of</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="concern-of" about="[ibis:concern-of]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">concern-of</h4>
+          <h4><code property="rdfs:label">concern-of</code></h4>
           <p property="rdfs:comment">The subject is an issue concerning the object, which can be any resource.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a></dd>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#concerns">ibis:concerns</a></dd>
+            <dd><a rel="owl:inverseOf" href="#concerns"><code>ibis:concerns</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -233,42 +279,42 @@
         <h3>Subordination and Superordination</h3>
         <p>While all <acronym title="Issue-based Information System">IBIS</acronym> terms inherit the semantic relations from <acronym title="Simple Knowledge Organization System">SKOS</acronym>, the <acronym title="Issue-based Information System">IBIS</acronym> paper specifies mereological relations peculiar to Issues. I have relaxed the constraint specified in the paper, such that these relations are now merely vestigial.</p>
         <section id="specializes" about="[ibis:specializes]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">specializes</h4>
+          <h4><code property="rdfs:label">specializes</code></h4>
           <p property="rdfs:comment">The subject is a more specific form of the object.</p>
-          <blockquote class="note">
+          <aside role="note">
             <p property="skos:note">The equivalent property skos:broader asserts that the object is broader than the subject, while the subject of ibis:specializes is more specific than the object.</p>
-          </blockquote>
+          </aside>
           <dl>
             <!--<dt>Domain:</dt>
                 <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
                 <dt>Range:</dt>
                 <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>-->
             <dt>Equivalent property:</dt>
-            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a></dd>
+            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#broader"><code>skos:broader</code></a></dd>
             <!--<dt>Sub-property of:</dt>
                 <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a></dd>-->
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#generalizes">ibis:generalizes</a></dd>
+            <dd><a rel="owl:inverseOf" href="#generalizes"><code>ibis:generalizes</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="generalizes" about="[ibis:generalizes]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">generalizes</h4>
+          <h4><code property="rdfs:label">generalizes</code></h4>
           <p property="rdfs:comment">The subject is a more generic form of the object.</p>
-          <blockquote class="note">
+          <aside role="note">
             <p property="skos:note">The equivalent property skos:narrower asserts that the object is narrower than the subject, while the subject of ibis:generalizes is more general than the object.</p>
-          </blockquote>
+          </aside>
           <dl>
             <!--<dt>Domain:</dt>
                 <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
                 <dt>Range:</dt>
                 <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>-->
             <dt>Equivalent property:</dt>
-            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a></dd>
+            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#narrower"><code>skos:narrower</code></a></dd>
             <!--<dt>Sub-property of:</dt>
                 <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a></dd>-->
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#specializes">ibis:specializes</a></dd>
+            <dd><a rel="owl:inverseOf" href="#specializes"><code>ibis:specializes</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -276,32 +322,34 @@
       <section>
         <h3>Replacement</h3>
         <section id="replaces" about="[ibis:replaces]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">replaces</h4>
+          <h4><code property="rdfs:label">replaces</code></h4>
           <p property="rdfs:comment">Indicates when a concept replaces another concept of the same type.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/replaces">dct:replaces</a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/replaces"><code>dct:replaces</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#replaced-by">ibis:replaced-by</a></dd>
+            <dd><a rel="owl:inverseOf" href="#replaced-by"><code>ibis:replaced-by</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="replaced-by" about="[ibis:replaced-by]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">replaced by</h4>
+          <h4><code property="rdfs:label">replaced-by</code></h4>
           <p property="rdfs:comment">Indicates when a concept is replaced by another concept of the same type.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/isReplacedBy">dct:isReplacedBy</a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/isReplacedBy"><code>dct:isReplacedBy</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#replaces">ibis:replaces</a></dd>
+            <dd><a rel="owl:inverseOf" href="#replaces"><code>ibis:replaces</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -309,28 +357,32 @@
       <section>
         <h3>Suggestions</h3>
         <section id="suggests" about="[ibis:suggests]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">suggests</h4>
+          <h4><code property="rdfs:label">suggests</code></h4>
           <p property="rdfs:comment">Indicates when the subject belief suggests the object issue.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#suggested-by">ibis:suggested-by</a></dd>
+            <dd><a rel="owl:inverseOf" href="#suggested-by"><code>ibis:suggested-by</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="suggested-by" about="[ibis:suggested-by]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">suggested by</h4>
+          <h4><code property="rdfs:label">suggested-by</code></h4>
           <p property="rdfs:comment">Indicates when the subject issue is suggested by the object belief.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:domain" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#suggests">ibis:suggests</a></dd>
+            <dd><a rel="owl:inverseOf" href="#suggests"><code>ibis:suggests</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -338,32 +390,32 @@
       <section>
         <h3>Questions</h3>
         <section id="questions" about="[ibis:questions]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">questions</h4>
+          <h4><code property="rdfs:label">questions</code></h4>
           <p property="rdfs:comment">Indicates an issue that raises doubt on a belief.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:domain" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="#suggested-by">ibis:suggested-by</a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="#suggested-by"><code>ibis:suggested-by</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#questioned-by">ibis:questioned-by</a></dd>
+            <dd><a rel="owl:inverseOf" href="#questioned-by"><code>ibis:questioned-by</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="questioned-by" about="[ibis:questioned-by]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">questioned by</h4>
+          <h4><code property="rdfs:label">questioned-by</code></h4>
           <p property="rdfs:comment">Indicates a belief called into question by an issue.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="#suggests">ibis:suggests</a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="#suggests"><code>ibis:suggests</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#questions">ibis:questions</a></dd>
+            <dd><a rel="owl:inverseOf" href="#questions"><code>ibis:questions</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -371,28 +423,32 @@
       <section>
         <h3>Response</h3>
         <section id="response" about="[ibis:response]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">response</h4>
+          <h4><code property="rdfs:label">response</code></h4>
           <p property="rdfs:comment">Indicates a position that responds to the subject issue.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:domain" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Position">ibis:Position</a></dd>
+            <dd><a rel="rdfs:range" href="#Position"><code>ibis:Position</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#responds-to">ibis:responds-to</a></dd>
+            <dd><a rel="owl:inverseOf" href="#responds-to"><code>ibis:responds-to</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="responds-to" about="[ibis:responds-to]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">responds to</h4>
+          <h4><code property="rdfs:label">responds-to</code></h4>
           <p property="rdfs:comment">Indicates an issue to which the subject position responds.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Position">ibis:Position</a></dd>
+            <dd><a rel="rdfs:domain" href="#Position"><code>ibis:Position</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>
+            <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#response">ibis:response</a></dd>
+            <dd><a rel="owl:inverseOf" href="#response"><code>ibis:response</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -400,54 +456,62 @@
       <section>
         <h3>Argumentation</h3>
         <section id="supports" about="[ibis:supports]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">supports</h4>
+          <h4><code property="rdfs:label">supports</code></h4>
           <p property="rdfs:comment">Indicates a subject argument that supports an object position.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Argument">ibis:Argument</a></dd>
+            <dd><a rel="rdfs:domain" href="#Argument"><code>ibis:Argument</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Position">ibis:Position</a></dd>
+            <dd><a rel="rdfs:range" href="#Position"><code>ibis:Position</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#supported-by">ibis:supported-by</a></dd>
+            <dd><a rel="owl:inverseOf" href="#supported-by"><code>ibis:supported-by</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="supported-by" about="[ibis:supported-by]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">supported by</h4>
+          <h4><code property="rdfs:label">supported-by</code></h4>
           <p property="rdfs:comment">Indicates a subject position supported by an object argument.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Position">ibis:Position</a></dd>
+            <dd><a rel="rdfs:domain" href="#Position"><code>ibis:Position</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Argument">ibis:Argument</a></dd>
+            <dd><a rel="rdfs:range" href="#Argument"><code>ibis:Argument</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#supports">ibis:supports</a></dd>
+            <dd><a rel="owl:inverseOf" href="#supports"><code>ibis:supports</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="opposes" about="[ibis:opposes]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">opposes</h4>
+          <h4><code property="rdfs:label">opposes</code></h4>
           <p property="rdfs:comment">Indicates a subject argument that opposes an object position.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Argument">ibis:Argument</a></dd>
+            <dd><a rel="rdfs:domain" href="#Argument"><code>ibis:Argument</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Position">ibis:Position</a></dd>
+            <dd><a rel="rdfs:range" href="#Position"><code>ibis:Position</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#opposed-by">ibis:opposed-by</a></dd>
+            <dd><a rel="owl:inverseOf" href="#opposed-by"><code>ibis:opposed-by</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
         <section id="opposed-by" about="[ibis:opposed-by]" typeof="owl:ObjectProperty">
-          <h4 property="rdfs:label">opposed by</h4>
+          <h4><code property="rdfs:label">opposed-by</code></h4>
           <p property="rdfs:comment">Indicates a subject position opposed by an object argument.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="#Position">ibis:Position</a></dd>
+            <dd><a rel="rdfs:domain" href="#Position"><code>ibis:Position</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="#Argument">ibis:Argument</a></dd>
+            <dd><a rel="rdfs:range" href="#Argument"><code>ibis:Argument</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#opposes">ibis:opposes</a></dd>
+            <dd><a rel="owl:inverseOf" href="#opposes"><code>ibis:opposes</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>

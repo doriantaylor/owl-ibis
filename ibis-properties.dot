@@ -1,0 +1,153 @@
+digraph {
+    graph [bgcolor=transparent,rankdir=LR];
+    node [shape=box,style=rounded,color="#000000",fontcolor="#000000",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif",target="_parent"];
+    edge [concentrate=true,color="#000000",fontcolor="#000000",fontname="Lucida Grande, Lucida Sans Unicode, sans-serif"];
+
+    // third-party classes
+
+    subgraph {
+        node [shape=box, style=dashed];
+        owl_Thing [label="owl:Thing", href="https://www.w3.org/TR/owl2-syntax/#a_Thing"];
+        foaf_Agent [label="foaf:Agent", href="https://xmlns.com/foaf/spec/#term_Agent"];
+        // skos_Concept [label="skos:Concept", href=""];
+        skos_ConceptScheme [label="skos:ConceptScheme", href="https://www.w3.org/2009/08/skos-reference/skos.html#ConceptScheme"];
+    }
+
+    // our classes
+
+    subgraph {
+        node [shape=box, style=""];
+        ibis_Network  [label="ibis:Network",  href="https://vocab.methodandstructure.com/ibis#Network"];
+        ibis_Entity   [label="ibis:Entity",   href="https://vocab.methodandstructure.com/ibis#Entity"];
+        ibis_Issue    [label="ibis:Issue",    href="https://vocab.methodandstructure.com/ibis#Issue"];
+        ibis_Position [label="ibis:Position", href="https://vocab.methodandstructure.com/ibis#Position"];
+        ibis_Argument [label="ibis:Argument", href="https://vocab.methodandstructure.com/ibis#Argument"];
+    }
+
+    // our datatypes
+    subgraph {
+        node [shape=note];
+    }
+
+    // third-party properties
+
+    subgraph {
+        node [style="dashed,rounded"];
+        dct_requires     [label="dct:requires", href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/requires"];
+        dct_replaces     [label="dct:replaces", href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/replaces"];
+        dct_isReplacedBy [label="dct:isReplacedBy", href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/isReplacedBy"];
+        skos_broader     [label="skos:broader", href="https://www.w3.org/2009/08/skos-reference/skos.html#broader"];
+        skos_narrower    [label="skos:narrower", href="https://www.w3.org/2009/08/skos-reference/skos.html#narrower"];
+        skos_semanticRelation [label="skos:semanticRelation", href="https://www.w3.org/2009/08/skos-reference/skos.html#semanticRelation"];
+        skos_inScheme [label="skos:inScheme", href="https://www.w3.org/2009/08/skos-reference/skos.html#inScheme"];
+    }
+
+    // our properties
+
+    ibis_generalizes [label="ibis:generalizes", href="https://vocab.methodandstructure.com/ibis#generalizes"];
+    ibis_specializes [label="ibis:specializes", href="https://vocab.methodandstructure.com/ibis#specializes"];
+    ibis_replaces [label="ibis:replaces", href="https://vocab.methodandstructure.com/ibis#replaces"];
+    ibis_replaced_by [label="ibis:replaced-by", href="https://vocab.methodandstructure.com/ibis#replaced-by"];
+    ibis_suggests [label="ibis:suggests", href="https://vocab.methodandstructure.com/ibis#suggests"];
+    ibis_suggested_by [label="ibis:suggested-by", href="https://vocab.methodandstructure.com/ibis#suggested-by"];
+    ibis_questions [label="ibis:questions", href="https://vocab.methodandstructure.com/ibis#questions"];
+    ibis_questioned_by [label="ibis:questioned-by", href="https://vocab.methodandstructure.com/ibis#questioned-by"];
+    ibis_response [label="ibis:response", href="https://vocab.methodandstructure.com/ibis#response"];
+    ibis_responds_to [label="ibis:responds-to", href="https://vocab.methodandstructure.com/ibis#responds-to"];
+    ibis_supports [label="ibis:supports", href="https://vocab.methodandstructure.com/ibis#supports"];
+    ibis_supported_by [label="ibis:supported-by", href="https://vocab.methodandstructure.com/ibis#supported-by"];
+    ibis_opposes [label="ibis:opposes", href="https://vocab.methodandstructure.com/ibis#opposes"];
+    ibis_opposed_by [label="ibis:opposed-by", href="https://vocab.methodandstructure.com/ibis#opposed-by"];
+    ibis_endorses [label="ibis:endorses", href="https://vocab.methodandstructure.com/ibis#endorses"];
+    ibis_endorsed_by [label="ibis:endorsed-by", href="https://vocab.methodandstructure.com/ibis#endorsed-by"];
+    ibis_concerns [label="ibis:concerns", href="https://vocab.methodandstructure.com/ibis#concerns"];
+    ibis_concern_of [label="ibis:concern-of", href="https://vocab.methodandstructure.com/ibis#concern-of"];
+    ibis_concepts [label="ibis:concepts", href="https://vocab.methodandstructure.com/ibis#concepts"];
+    ibis_main_concepts [label="ibis:main-concepts", href="https://vocab.methodandstructure.com/ibis#main-concepts"];
+
+    subgraph {
+        edge [style=dashed, label="rdfs:subPropertyOf"];
+        ibis_main_concepts -> ibis_concepts -> dct_requires;
+        ibis_replaces      -> dct_replaces;
+        ibis_replaced_by   -> dct_isReplacedBy;
+        ibis_questions     -> ibis_suggested_by -> skos_semanticRelation;
+        ibis_questioned_by -> ibis_suggests     -> skos_semanticRelation;
+        ibis_replaces      -> skos_semanticRelation;
+        ibis_replaced_by   -> skos_semanticRelation;
+        ibis_response      -> skos_semanticRelation;
+        ibis_responds_to   -> skos_semanticRelation;
+        ibis_supports      -> skos_semanticRelation;
+        ibis_supported_by  -> skos_semanticRelation;
+        ibis_opposes       -> skos_semanticRelation;
+        ibis_opposed_by    -> skos_semanticRelation;
+    }
+
+    subgraph {
+        edge [style=dashed, label="owl:equivalentProperty"];
+        ibis_generalizes -> skos_narrower;
+        ibis_specializes -> skos_broader;
+    }
+
+    subgraph {
+        edge [style=dashed, dir=both, label="owl:inverseOf"];
+        ibis_generalizes -> ibis_specializes;
+        ibis_replaces    -> ibis_replaced_by;
+        ibis_suggests    -> ibis_suggested_by;
+        ibis_questions   -> ibis_questioned_by;
+        ibis_response    -> ibis_responds_to;
+        ibis_supports    -> ibis_supported_by;
+        ibis_opposes     -> ibis_opposed_by;
+        ibis_concerns    -> ibis_concern_of;
+        ibis_endorses    -> ibis_endorsed_by;
+    }
+
+    subgraph {
+        edge [style=dashed, dir=back, label="rdfs:domain"];
+        ibis_replaces      -> ibis_Entity;
+        ibis_replaced_by   -> ibis_Entity;
+        ibis_endorses      -> foaf_Agent;
+        ibis_endorsed_by   -> ibis_Entity;
+        ibis_concepts      -> ibis_Network;
+        ibis_main_concepts -> ibis_Network;
+        ibis_concerns      -> ibis_Entity;
+        ibis_concern_of    -> owl_Thing;
+        ibis_generalizes   -> ibis_Entity;
+        ibis_specializes   -> ibis_Entity;
+        ibis_suggests      -> ibis_Entity;
+        ibis_suggested_by  -> ibis_Issue;
+        ibis_questions     -> ibis_Issue;
+        ibis_questioned_by -> ibis_Entity;
+        ibis_response      -> ibis_Issue;
+        ibis_responds_to   -> ibis_Position;
+        ibis_supports      -> ibis_Argument;
+        ibis_supported_by  -> ibis_Position;
+        ibis_opposes       -> ibis_Argument;
+        ibis_opposed_by    -> ibis_Position;
+        skos_inScheme      -> ibis_Entity;
+    }
+
+    subgraph {
+        edge [style=dashed, label="rdfs:range"];
+        ibis_replaces      -> ibis_Entity;
+        ibis_replaced_by   -> ibis_Entity;
+        ibis_endorses      -> ibis_Entity;
+        ibis_endorsed_by   -> foaf_Agent;
+        ibis_concepts      -> skos_ConceptScheme;
+        ibis_main_concepts -> skos_ConceptScheme;
+        ibis_concerns      -> owl_Thing;
+        ibis_concern_of    -> ibis_Entity;
+        ibis_generalizes   -> ibis_Entity;
+        ibis_specializes   -> ibis_Entity;
+        ibis_suggests      -> ibis_Issue;
+        ibis_suggested_by  -> ibis_Entity;
+        ibis_questions     -> ibis_Entity;
+        ibis_questioned_by -> ibis_Issue;
+        ibis_response      -> ibis_Position;
+        ibis_responds_to   -> ibis_Issue;
+        ibis_supports      -> ibis_Position;
+        ibis_supported_by  -> ibis_Argument;
+        ibis_opposes       -> ibis_Position;
+        ibis_opposed_by    -> ibis_Argument;
+        skos_inScheme      -> ibis_Network;
+    }
+}

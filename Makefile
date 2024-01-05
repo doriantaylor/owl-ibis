@@ -4,7 +4,7 @@ RDF    = rdf
 RAPPER = rapper
 DOT    = dot
 PANDOC = pandoc
-RSYNC  = rsync
+RSYNC  = rsync -avczP
 ME     = ibis
 SITE   = doriantaylor.com:ms/vocab/
 
@@ -21,7 +21,7 @@ readme:
 	$(PANDOC) -f html -t gfm $(ME).xml > README.md
 
 push:
-	rsync -avz --progress $(ME)* $(SITE)
+	$(RSYNC) $(ME)* $(SITE)
 
 clean:
 	rm -f $(ME)*.{rdf,ttl,svg,png}
