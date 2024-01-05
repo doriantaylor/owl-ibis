@@ -11,11 +11,12 @@ digraph {
         skos_ConceptScheme [label="skos:ConceptScheme"];
     }
 
-    ibis_Entity   [label="ibis:Entity"];
-    ibis_Issue    [label="ibis:Issue"];
-    ibis_Position [label="ibis:Position"];
-    ibis_Argument [label="ibis:Argument"];
-    ibis_Network  [label="ibis:Network"];
+    ibis_Entity    [label="ibis:Entity"];
+    ibis_Invariant [label="ibis:Invariant"];
+    ibis_Issue     [label="ibis:Issue"];
+    ibis_Position  [label="ibis:Position"];
+    ibis_Argument  [label="ibis:Argument"];
+    ibis_Network   [label="ibis:Network"];
 
     subgraph {
         edge [fontsize=10,concentrate=true];
@@ -24,22 +25,26 @@ digraph {
         ibis_Issue -> ibis_Issue [label="ibis:generalizes"];
         ibis_Issue -> ibis_Issue [label="ibis:replaces"];
         */
-        ibis_Issue -> ibis_Issue [label="ibis:generalizes\nibis:specializes\nibis:replaces\nibis:questions\nibis:suggests"];
+        // ibis_Issue -> ibis_Issue [label="ibis:generalizes\nibis:specializes\nibis:replaces\nibis:questions\nibis:suggests"];
+        ibis_Entity -> ibis_Entity [label="ibis:generalizes, ibis:specializes", dir=both];
+        ibis_Entity -> ibis_Issue [label="ibis:suggests"];
+        ibis_Issue  -> ibis_Entity [label="ibis:questions"];
 
         subgraph {
             edge [label="rdfs:subClassOf", style=dashed];
-            ibis_Entity   -> skos_Concept;
-            ibis_Issue    -> ibis_Entity;
-            ibis_Position -> ibis_Entity;
-            ibis_Argument -> ibis_Issue;
-            ibis_Network  -> skos_ConceptScheme;
+            ibis_Invariant -> ibis_Entity -> skos_Concept;
+            ibis_Issue     -> ibis_Entity;
+            ibis_Position  -> ibis_Entity;
+            ibis_Argument  -> ibis_Issue;
+            ibis_Network   -> skos_ConceptScheme;
         }
 
         subgraph {
             edge [label="skos:inScheme", style=dashed, concentrate=true];
-            ibis_Issue    -> ibis_Network;
-            ibis_Position -> ibis_Network;
-            ibis_Argument -> ibis_Network;
+            ibis_Entity   -> ibis_Network;
+            // ibis_Issue    -> ibis_Network;
+            // ibis_Position -> ibis_Network;
+            // ibis_Argument -> ibis_Network;
             skos_Concept  -> skos_ConceptScheme;
         }
 
@@ -49,21 +54,22 @@ digraph {
 
         subgraph {
             edge [label="ibis:endorses"];
-            foaf_Agent -> ibis_Issue;
-            foaf_Agent -> ibis_Position;
-            foaf_Agent -> ibis_Argument;
+            foaf_Agent -> ibis_Entity;
+            // foaf_Agent -> ibis_Issue;
+            // foaf_Agent -> ibis_Position;
+            // foaf_Agent -> ibis_Argument;
         }
 
         subgraph {
             edge [label="ibis:questions"];
-            ibis_Issue -> ibis_Argument;
-            ibis_Issue -> ibis_Position;
+            // ibis_Issue -> ibis_Argument;
+            // ibis_Issue -> ibis_Position;
             //ibis_Issue -> ibis_Issue;
         }
         subgraph {
             edge [label="ibis:suggests"];
-            ibis_Position -> ibis_Issue;
-            ibis_Argument -> ibis_Issue;
+            // ibis_Position -> ibis_Issue;
+            // ibis_Argument -> ibis_Issue;
             //ibis_Issue    -> ibis_Issue;
         }
 
@@ -71,6 +77,6 @@ digraph {
         ibis_Position -> ibis_Issue    [label="ibis:responds-to"];
         ibis_Argument -> ibis_Position [label="ibis:supports"];
         ibis_Argument -> ibis_Position [label="ibis:opposes"];
-        ibis_Network -> skos_ConceptScheme [label="ibis:concepts\nibis:main-concepts"];
+        // ibis_Network -> skos_ConceptScheme [label="ibis:concepts\nibis:main-concepts"];
     }
 }

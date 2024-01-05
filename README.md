@@ -23,6 +23,8 @@ March 24, 2019
 
 December 18, 2023
 
+January 4, 2024
+
 Namespace URI  
 [`https://vocab.methodandstructure.com/ibis#`](https://vocab.methodandstructure.com/ibis#)
 
@@ -296,8 +298,8 @@ Domain:
 rel="rdfs:domain"><code>foaf:Agent</code></a>
 
 Range:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:range"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#endorsed-by"
@@ -321,8 +323,7 @@ agreement with a concept. To signal disagreement, explain why with an
 ibis:Argument that ibis:opposes the concept.
 
 Domain:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:domain"><code>skos:Concept</code></a>
+<a href="ibis:Entity" rel="rdfs:domain"><code>ibis:Entity</code></a>
 
 Range:  
 <a href="http://xmlns.com/foaf/0.1/Agent"
@@ -345,54 +346,6 @@ rel="rdfs:isDefinedBy">Back to Top</a>
 
 This IBIS vocabulary is based on SKOS, and therefore has a close
 relationship with it. These properties connect IBIS to with skos
-
-<div id="concepts" class="section" about="[ibis:concepts]"
-typeof="owl:ObjectProperty">
-
-#### `concepts`
-
-This relates a concept scheme to the IBIS network.
-
-Domain:  
-<a href="https://vocab.methodandstructure.com/ibis#Network"
-rel="rdfs:domain"><code>ibis:Network</code></a>
-
-Range:  
-<a href="http://www.w3.org/2004/02/skos/core#ConceptScheme"
-rel="rdfs:range"><code>skos:ConceptScheme</code></a>
-
-Sub-property of:  
-<a href="http://purl.org/dc/terms/requires"
-rel="rdfs:subPropertyOf"><code>dct:requires</code></a>
-
-<a href="https://vocab.methodandstructure.com/ibis#"
-rel="rdfs:isDefinedBy">Back to Top</a>
-
-</div>
-
-<div id="main-concepts" class="section" about="[ibis:main-concepts]"
-typeof="owl:ObjectProperty owl:FunctionalProperty">
-
-#### `main-concepts`
-
-This relates the *preferred* concept scheme to the IBIS network.
-
-Domain:  
-<a href="https://vocab.methodandstructure.com/ibis#Network"
-rel="rdfs:domain"><code>ibis:Network</code></a>
-
-Range:  
-<a href="http://www.w3.org/2004/02/skos/core#ConceptScheme"
-rel="rdfs:range"><code>skos:ConceptScheme</code></a>
-
-Sub-property of:  
-<a href="https://vocab.methodandstructure.com/ibis#concepts"
-rel="rdfs:subPropertyOf"><code>ibis:concepts</code></a>
-
-<a href="https://vocab.methodandstructure.com/ibis#"
-rel="rdfs:isDefinedBy">Back to Top</a>
-
-</div>
 
 <div id="concerns" class="section" about="[ibis:concerns]"
 typeof="owl:ObjectProperty">
@@ -455,30 +408,6 @@ paper specifies mereological relations peculiar to Issues. I have
 relaxed the constraint specified in the paper, such that these relations
 are now merely vestigial.
 
-<div id="specializes" class="section" about="[ibis:specializes]"
-typeof="owl:ObjectProperty">
-
-#### `specializes`
-
-The subject is a more specific form of the object.
-
-The equivalent property skos:broader asserts that the object is broader
-than the subject, while the subject of ibis:specializes is more specific
-than the object.
-
-Equivalent property:  
-<a href="http://www.w3.org/2004/02/skos/core#broader"
-rel="owl:equivalentProperty"><code>skos:broader</code></a>
-
-Inverse of:  
-<a href="https://vocab.methodandstructure.com/ibis#generalizes"
-rel="owl:inverseOf"><code>ibis:generalizes</code></a>
-
-<a href="https://vocab.methodandstructure.com/ibis#"
-rel="rdfs:isDefinedBy">Back to Top</a>
-
-</div>
-
 <div id="generalizes" class="section" about="[ibis:generalizes]"
 typeof="owl:ObjectProperty">
 
@@ -490,13 +419,53 @@ The equivalent property skos:narrower asserts that the object is
 narrower than the subject, while the subject of ibis:generalizes is more
 general than the object.
 
-Equivalent property:  
+Domain:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
+
+Range:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
+
+Sub-property of:  
 <a href="http://www.w3.org/2004/02/skos/core#narrower"
-rel="owl:equivalentProperty"><code>skos:narrower</code></a>
+rel="rdfs:subPropertyOf"><code>skos:narrower</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#specializes"
 rel="owl:inverseOf"><code>ibis:specializes</code></a>
+
+<a href="https://vocab.methodandstructure.com/ibis#"
+rel="rdfs:isDefinedBy">Back to Top</a>
+
+</div>
+
+<div id="specializes" class="section" about="[ibis:specializes]"
+typeof="owl:ObjectProperty">
+
+#### `specializes`
+
+The subject is a more specific form of the object.
+
+The equivalent property skos:broader asserts that the object is broader
+than the subject, while the subject of ibis:specializes is more specific
+than the object.
+
+Domain:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
+
+Range:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
+
+Sub-property of:  
+<a href="http://www.w3.org/2004/02/skos/core#broader"
+rel="rdfs:subPropertyOf"><code>skos:broader</code></a>
+
+Inverse of:  
+<a href="https://vocab.methodandstructure.com/ibis#generalizes"
+rel="owl:inverseOf"><code>ibis:generalizes</code></a>
 
 <a href="https://vocab.methodandstructure.com/ibis#"
 rel="rdfs:isDefinedBy">Back to Top</a>
@@ -517,12 +486,12 @@ typeof="owl:ObjectProperty">
 Indicates when a concept replaces another concept of the same type.
 
 Domain:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:domain"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
 
 Range:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:range"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
 <a href="http://purl.org/dc/terms/replaces"
@@ -549,12 +518,12 @@ Indicates when a concept is replaced by another concept of the same
 type.
 
 Domain:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:domain"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
 
 Range:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:range"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
 <a href="http://purl.org/dc/terms/isReplacedBy"
@@ -586,8 +555,8 @@ typeof="owl:ObjectProperty">
 Indicates when the subject belief suggests the object issue.
 
 Domain:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:domain"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
 
 Range:  
 <a href="https://vocab.methodandstructure.com/ibis#Issue"
@@ -618,8 +587,8 @@ Domain:
 rel="rdfs:domain"><code>ibis:Issue</code></a>
 
 Range:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:range"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
 <a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
@@ -652,8 +621,8 @@ Domain:
 rel="rdfs:domain"><code>ibis:Issue</code></a>
 
 Range:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:range"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggested-by"
@@ -676,8 +645,8 @@ typeof="owl:ObjectProperty">
 Indicates a belief called into question by an issue.
 
 Domain:  
-<a href="http://www.w3.org/2004/02/skos/core#Concept"
-rel="rdfs:domain"><code>skos:Concept</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
 
 Range:  
 <a href="https://vocab.methodandstructure.com/ibis#Issue"

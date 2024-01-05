@@ -196,7 +196,7 @@
             <dt>Domain:</dt>
             <dd><a rel="rdfs:domain" href="http://xmlns.com/foaf/0.1/Agent"><code>foaf:Agent</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#endorsed-by"><code>ibis:endorsed-by</code></a></dd>
           </dl>
@@ -210,7 +210,7 @@
           </aside>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:domain" href="ibis:Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="http://xmlns.com/foaf/0.1/Agent"><code>foaf:Agent</code></a></dd>
             <dt>Inverse of:</dt>
@@ -222,6 +222,7 @@
       <section>
         <h3>Relations to Concepts</h3>
         <p>This <abbr>IBIS</abbr> vocabulary is based on <abbr>SKOS</abbr>, and therefore has a close relationship with it. These properties connect IBIS to with skos</p>
+        <!--
         <section id="concepts" about="[ibis:concepts]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">concepts</code></h4>
           <p property="rdfs:comment">This relates a concept scheme to the <abbr>IBIS</abbr> network.</p>
@@ -247,7 +248,7 @@
             <dd><a rel="rdfs:subPropertyOf" href="#concepts"><code>ibis:concepts</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
-        </section>
+        </section>-->
         <section id="concerns" about="[ibis:concerns]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">concerns</code></h4>
           <p property="rdfs:comment">The subject is an issue concerning the object, which can be any resource.</p>
@@ -278,26 +279,6 @@
       <section>
         <h3>Subordination and Superordination</h3>
         <p>While all <acronym title="Issue-based Information System">IBIS</acronym> terms inherit the semantic relations from <acronym title="Simple Knowledge Organization System">SKOS</acronym>, the <acronym title="Issue-based Information System">IBIS</acronym> paper specifies mereological relations peculiar to Issues. I have relaxed the constraint specified in the paper, such that these relations are now merely vestigial.</p>
-        <section id="specializes" about="[ibis:specializes]" typeof="owl:ObjectProperty">
-          <h4><code property="rdfs:label">specializes</code></h4>
-          <p property="rdfs:comment">The subject is a more specific form of the object.</p>
-          <aside role="note">
-            <p property="skos:note">The equivalent property skos:broader asserts that the object is broader than the subject, while the subject of ibis:specializes is more specific than the object.</p>
-          </aside>
-          <dl>
-            <!--<dt>Domain:</dt>
-                <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
-                <dt>Range:</dt>
-                <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>-->
-            <dt>Equivalent property:</dt>
-            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#broader"><code>skos:broader</code></a></dd>
-            <!--<dt>Sub-property of:</dt>
-                <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#broader">skos:broader</a></dd>-->
-            <dt>Inverse of:</dt>
-            <dd><a rel="owl:inverseOf" href="#generalizes"><code>ibis:generalizes</code></a></dd>
-          </dl>
-          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
-        </section>
         <section id="generalizes" about="[ibis:generalizes]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">generalizes</code></h4>
           <p property="rdfs:comment">The subject is a more generic form of the object.</p>
@@ -305,16 +286,36 @@
             <p property="skos:note">The equivalent property skos:narrower asserts that the object is narrower than the subject, while the subject of ibis:generalizes is more general than the object.</p>
           </aside>
           <dl>
-            <!--<dt>Domain:</dt>
-                <dd><a rel="rdfs:domain" href="#Issue">ibis:Issue</a></dd>
-                <dt>Range:</dt>
-                <dd><a rel="rdfs:range" href="#Issue">ibis:Issue</a></dd>-->
-            <dt>Equivalent property:</dt>
-            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#narrower"><code>skos:narrower</code></a></dd>
-            <!--<dt>Sub-property of:</dt>
-                <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#narrower">skos:narrower</a></dd>-->
+            <dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
+            <dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
+            <!--<dt>Equivalent property:</dt>
+            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#narrower"><code>skos:narrower</code></a></dd>-->
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#narrower"><code>skos:narrower</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#specializes"><code>ibis:specializes</code></a></dd>
+          </dl>
+          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+        </section>
+        <section id="specializes" about="[ibis:specializes]" typeof="owl:ObjectProperty">
+          <h4><code property="rdfs:label">specializes</code></h4>
+          <p property="rdfs:comment">The subject is a more specific form of the object.</p>
+          <aside role="note">
+            <p property="skos:note">The equivalent property skos:broader asserts that the object is broader than the subject, while the subject of ibis:specializes is more specific than the object.</p>
+          </aside>
+          <dl>
+            <dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
+            <dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
+            <!--<dt>Equivalent property:</dt>
+            <dd><a rel="owl:equivalentProperty" href="http://www.w3.org/2004/02/skos/core#broader"><code>skos:broader</code></a></dd>-->
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#broader"><code>skos:broader</code></a></dd>
+            <dt>Inverse of:</dt>
+            <dd><a rel="owl:inverseOf" href="#generalizes"><code>ibis:generalizes</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -326,9 +327,9 @@
           <p property="rdfs:comment">Indicates when a concept replaces another concept of the same type.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
             <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/replaces"><code>dct:replaces</code></a></dd>
             <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
@@ -342,9 +343,9 @@
           <p property="rdfs:comment">Indicates when a concept is replaced by another concept of the same type.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
             <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/isReplacedBy"><code>dct:isReplacedBy</code></a></dd>
             <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
@@ -361,7 +362,7 @@
           <p property="rdfs:comment">Indicates when the subject belief suggests the object issue.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Sub-property of:</dt>
@@ -378,7 +379,7 @@
             <dt>Domain:</dt>
             <dd><a rel="rdfs:domain" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
             <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
@@ -396,7 +397,7 @@
             <dt>Domain:</dt>
             <dd><a rel="rdfs:domain" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
             <dd><a rel="rdfs:subPropertyOf" href="#suggested-by"><code>ibis:suggested-by</code></a></dd>
             <dt>Inverse of:</dt>
@@ -409,7 +410,7 @@
           <p property="rdfs:comment">Indicates a belief called into question by an issue.</p>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2004/02/skos/core#Concept"><code>skos:Concept</code></a></dd>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Sub-property of:</dt>
