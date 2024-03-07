@@ -11,7 +11,7 @@ SITE   = doriantaylor.com:ms/vocab/
 target: variants dot readme
 
 variants:
-	$(RDF) serialize --input-format=rdfa --output-format=turtle -o $(ME).ttl $(ME).xml
+	$(RDF) serialize --input-format=rdfa --host-language=xhtml1 --output-format=turtle -o $(ME).ttl $(ME).xml
 	$(RAPPER) -i turtle -o rdfxml $(ME).ttl > $(ME).rdf
 
 dot:
