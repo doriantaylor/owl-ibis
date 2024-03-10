@@ -323,7 +323,8 @@ agreement with a concept. To signal disagreement, explain why with an
 ibis:Argument that ibis:opposes the concept.
 
 Domain:  
-<a href="ibis:Entity" rel="rdfs:domain"><code>ibis:Entity</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
 
 Range:  
 <a href="http://xmlns.com/foaf/0.1/Agent"

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="/transform"?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       xmlns:owl="http://www.w3.org/2002/07/owl#"
+      xmlns:sh="http://www.w3.org/ns/shacl#"
+      xmlns:xhv="http://www.w3.org/1999/xhtml/vocab#"
       xmlns:dct="http://purl.org/dc/terms/"
       xmlns:skos="http://www.w3.org/2004/02/skos/core#"
       xmlns:bibo="http://purl.org/ontology/bibo/"
@@ -12,13 +15,13 @@
       xmlns:vann="http://purl.org/vocab/vann/"
       xmlns:ibis="https://vocab.methodandstructure.com/ibis#"
       prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# owl: http://www.w3.org/2002/07/owl# dct: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# bibo: http://purl.org/ontology/bibo/ foaf: http://xmlns.com/foaf/0.1/ vann: http://purl.org/vocab/vann/ ibis: https://vocab.methodandstructure.com/ibis#"
-      xml:lang="en" vocab="http://www.w3.org/1999/xhtml/vocab#">
+      vocab="http://www.w3.org/1999/xhtml/vocab#" xml:lang="en">
   <head>
     <title about="#" property="dct:title">IBIS (bis) Vocabulary</title>
     <base href="https://vocab.methodandstructure.com/ibis"/>
     <meta about="#" property="rdfs:label" content="IBIS"/>
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
-    <link rel="xhv:up" href="/"/>
+    <link rel="up top contents index" href="/"/>
   </head>
   <body typeof="bibo:Webpage">
     <h1>The IBIS (<a href="#explanation">bis</a>) Vocabulary</h1>
@@ -210,7 +213,7 @@
           </aside>
           <dl>
             <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="ibis:Entity"><code>ibis:Entity</code></a></dd>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="http://xmlns.com/foaf/0.1/Agent"><code>foaf:Agent</code></a></dd>
             <dt>Inverse of:</dt>
