@@ -12,6 +12,7 @@ digraph {
     }
 
     ibis_Entity    [label="ibis:Entity"];
+    ibis_State     [label="ibis:State"];
     ibis_Invariant [label="ibis:Invariant"];
     ibis_Issue     [label="ibis:Issue"];
     ibis_Position  [label="ibis:Position"];
@@ -33,7 +34,7 @@ digraph {
         subgraph {
             edge [label="rdfs:subClassOf", style=dashed];
             ibis_Invariant -> ibis_Entity -> skos_Concept;
-            ibis_Issue     -> ibis_Entity;
+            ibis_Issue     -> ibis_State -> ibis_Entity;
             ibis_Position  -> ibis_Entity;
             ibis_Argument  -> ibis_Issue;
             ibis_Network   -> skos_ConceptScheme;

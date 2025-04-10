@@ -1,6 +1,4 @@
-# The IBIS ([bis](https://vocab.methodandstructure.com/ibis#explanation)) Vocabulary
-
-<div class="section" about="#" typeof="owl:Ontology">
+<div about="#" typeof="owl:Ontology">
 
 Author  
 <a href="https://doriantaylor.com/person/dorian-taylor#me"
@@ -24,6 +22,8 @@ March 24, 2019
 December 18, 2023
 
 January 4, 2024
+
+April 9, 2025
 
 Namespace URI  
 [`https://vocab.methodandstructure.com/ibis#`](https://vocab.methodandstructure.com/ibis#)
@@ -73,7 +73,9 @@ rel="rdfs:seeAlso">N3/Turtle</a> versions are derived from it.
 
 ## Classes
 
-![](https://vocab.methodandstructure.com/ibis-classes)
+<figure>
+<img src="https://vocab.methodandstructure.com/ibis-classes" />
+</figure>
 
 <div id="Entity" class="section" about="[ibis:Entity]"
 typeof="owl:Class">
@@ -92,6 +94,25 @@ rel="rdfs:isDefinedBy">Back to Top</a>
 
 </div>
 
+<div id="State" class="section" about="[ibis:State]" typeof="owl:Class">
+
+### `State`
+
+A State can be understood as a snapshot of a system at a given time,
+such as before or after an event.
+
+A State is distinct from a particular instant, but it is analogous to
+it. At the time of observation, a State is either true or false.
+
+Subclass of:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:subClassOf"><code>ibis:Entity</code></a>
+
+<a href="https://vocab.methodandstructure.com/ibis#"
+rel="rdfs:isDefinedBy">Back to Top</a>
+
+</div>
+
 <div id="Issue" class="section" about="[ibis:Issue]" typeof="owl:Class">
 
 ### `Issue`
@@ -100,8 +121,8 @@ An Issue is a state of affairs, claimed by one or more Agents to either
 be a misfit itself, or affecting some other Issue or Position.
 
 Subclass of:  
-<a href="https://vocab.methodandstructure.com/ibis#Entity"
-rel="rdfs:subClassOf"><code>ibis:Entity</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#State"
+rel="rdfs:subClassOf"><code>ibis:State</code></a>
 
 Property restrictions:  
 <span id="generalizes-issue" typeof="owl:Restriction">
@@ -195,8 +216,8 @@ typeof="owl:Class">
 An Argument is a type of Issue that explicitly supports or refutes a
 Position.
 
-> An Argument need not only relate in scope to another Argument, but it
-> must only be replaced by another argument.
+An Argument need not only relate in scope to another Argument, but it
+must only be replaced by another argument.
 
 Subclass of:  
 <a href="https://vocab.methodandstructure.com/ibis#Issue"
@@ -264,7 +285,9 @@ rel="rdfs:isDefinedBy">Back to Top</a>
 
 ## Properties
 
-![](https://vocab.methodandstructure.com/ibis-properties)
+<figure>
+<img src="https://vocab.methodandstructure.com/ibis-properties" />
+</figure>
 
 <div class="section">
 
@@ -360,10 +383,6 @@ Domain:
 <a href="https://vocab.methodandstructure.com/ibis#Entity"
 rel="rdfs:domain"><code>ibis:Entity</code></a>
 
-Range:  
-<a href="http://www.w3.org/2002/07/owl#Thing"
-rel="rdfs:range"><code>owl:Thing</code></a>
-
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#concern-of"
 rel="owl:inverseOf"><code>ibis:concern-of</code></a>
@@ -380,10 +399,6 @@ typeof="owl:ObjectProperty">
 
 The subject is an issue concerning the object, which can be any
 resource.
-
-Domain:  
-<a href="http://www.w3.org/2002/07/owl#Thing"
-rel="rdfs:domain"><code>owl:Thing</code></a>
 
 Range:  
 <a href="https://vocab.methodandstructure.com/ibis#Entity"
@@ -947,21 +962,21 @@ rel="rdfs:seeAlso">a process model ontology</a>.
 
 ## References
 
--   <a href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"
-    rel="rdfs:seeAlso" type="application/pdf"><span
-    property="dct:title">Issues as Elements of Information Systems</span>
-    (<span property="dct:creator" content="Werner Kunz">Kunz</span> and
-    <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span
-    property="dct:date">1970</span>)</a>
--   <a
-    href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf"
-    type="application/pdf" rel="rdfs:seeAlso"><span
-    property="dct:title">gIBIS: a hypertext tool for exploratory policy
-    discussion</span> (<span property="dct:creator"
-    content="Jeff Conklin">Conklin</span> and <span property="dct:creator"
-    content="Michael L. Begeman">Begeman</span>, <span
-    property="dct:date">1988</span>)</a>
--   <a href="http://en.wikipedia.org/wiki/Issue-Based_Information_System"
-    rel="rdfs:seeAlso">Wikipedia entry for IBIS</a>
+- <a href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"
+  rel="rdfs:seeAlso" type="application/pdf"><span
+  property="dct:title">Issues as Elements of Information Systems</span>
+  (<span property="dct:creator" content="Werner Kunz">Kunz</span> and
+  <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span
+  property="dct:date" datatype="xsd:gYear">1970</span>)</a>
+- <a
+  href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf"
+  type="application/pdf" rel="rdfs:seeAlso"><span
+  property="dct:title">gIBIS: a hypertext tool for exploratory policy
+  discussion</span> (<span property="dct:creator"
+  content="Jeff Conklin">Conklin</span> and <span property="dct:creator"
+  content="Michael L. Begeman">Begeman</span>, <span property="dct:date"
+  datatype="xsd:gYear">1988</span>)</a>
+- <a href="http://en.wikipedia.org/wiki/Issue-Based_Information_System"
+  rel="rdfs:seeAlso">Wikipedia entry for IBIS</a>
 
 </div>

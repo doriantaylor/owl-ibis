@@ -23,9 +23,9 @@
     <link about="#" rel="rdfs:isDefinedBy bibo:uri" href="#"/>
     <link rel="up top contents index" href="/"/>
   </head>
-  <body typeof="bibo:Webpage">
-    <h1>The IBIS (<a href="#explanation">bis</a>) Vocabulary</h1>
-    <section about="#" typeof="owl:Ontology">
+  <body typeof="bibo:Specification">
+    <!--<h1>The IBIS (<a href="#explanation">bis</a>) Vocabulary</h1>-->
+    <div about="#" typeof="owl:Ontology">
       <dl>
         <dt>Author</dt>
         <dd><a rel="dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
@@ -40,6 +40,7 @@
         <dd property="dct:modified" datatype="xsd:dateTime" content="2019-03-24T22:37:22Z">March 24, 2019</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2023-12-18T02:25:31Z">December 18, 2023</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2024-01-05T04:05:24Z">January 4, 2024</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2025-04-10T02:30:11Z">April 9, 2025</dd>
         <dt>Namespace URI</dt>
         <dd><a href="#"><code>https://vocab.methodandstructure.com/ibis#</code></a></dd>
         <dt>Preferred Namespace Prefix</dt>
@@ -47,9 +48,9 @@
       </dl>
       <p property="rdfs:comment">This document specifies a vocabulary for describing an IBIS (issue-based information system).</p>
       <p>The purpose of this vocabulary is to express the necessary semantics for the internal representation of&#x2014;and interchange between&#x2014;collaborative software systems that facilitate structured argumentation and issue-based reasoning. This vocabulary augments the semantic elements of <a about="#" type="application/pdf" rel="rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf">the gIBIS paper</a> by reusing components from, and thus integrating it into the Semantic Web.</p>
-      <p id="explanation">This document was <a rel="rdfs:seeAlso" href="https://web.archive.org/web/20120606063823/http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="https://web.archive.org/web/20120606063823/http://hyperdata.org/xmlns/ibis/" rel="dct:creator" href="https://web.archive.org/web/20130113103138/http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to replace it. It differs from the Ayers version primarily in that it is an <a rel="owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <acronym title="Simple Knowledge Organization System">SKOS</acronym></a>, due to the suitability of the <a rel="dct:references" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <acronym title="Issue-Based Information System">IBIS</acronym> types.</p>
+      <p id="explanation">This document was <a rel="rdfs:seeAlso" href="https://web.archive.org/web/20120606063823/http://hyperdata.org/xmlns/ibis/">inspired by work</a> from <a about="https://web.archive.org/web/20120606063823/http://hyperdata.org/xmlns/ibis/" rel="dct:creator" href="https://web.archive.org/web/20130113103138/http://danny.ayers.name/index.rdf#me"><span property="foaf:name">Danny Ayers</span></a>, which, as of around October of 2012, has unfortunately disappeared from the web. <a rel="dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me">I</a> developed this vocabulary to replace it. It differs from the Ayers version primarily in that it is an <a rel="owl:imports" href="http://www.w3.org/2004/02/skos/core#">extension of <abbr title="Simple Knowledge Organization System">SKOS</abbr></a>, due to the suitability of the <a rel="dct:references" href="http://www.w3.org/2004/02/skos/core#Concept">Concept</a> as a common ancestor for expressing the fundamental <abbr title="Issue-Based Information System">IBIS</abbr> types.</p>
       <p>As with the other vocabularies on this site, this prose version is canonical, and the <a rel="rdfs:seeAlso" href="ibis.rdf">RDF/XML</a> and <a rel="rdfs:seeAlso" href="ibis.n3">N3/Turtle</a> versions are derived from it.</p>
-    </section>
+    </div>
     <section>
       <h2>Classes</h2>
       <figure>
@@ -64,12 +65,24 @@
         </dl>
         <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
       </section>
+      <section id="State" about="[ibis:State]" typeof="owl:Class">
+        <h3><code property="rdfs:label" datatype="xsd:token">State</code></h3>
+        <p property="rdfs:comment">A State can be understood as a snapshot of a system at a given time, such as before or after an event.</p>
+        <aside role="note">
+          <p property="skos:note">A State is distinct from a particular instant, but it is analogous to it. At the time of observation, a State is either true or false.</p>
+        </aside>
+        <dl>
+          <dt>Subclass of:</dt>
+	  <dd><a rel="rdfs:subClassOf" href="#Entity"><code>ibis:Entity</code></a></dd>
+        </dl>
+        <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+      </section>
       <section id="Issue" about="[ibis:Issue]" typeof="owl:Class">
         <h3><code property="rdfs:label">Issue</code></h3>
         <p property="rdfs:comment">An Issue is a state of affairs, claimed by one or more Agents to either be a misfit itself, or affecting some other Issue or Position.</p>
         <dl>
           <dt>Subclass of:</dt>
-          <dd><a rel="rdfs:subClassOf" href="#Entity"><code>ibis:Entity</code></a></dd>
+          <dd><a rel="rdfs:subClassOf" href="#State"><code>ibis:State</code></a></dd>
           <dt>Property restrictions:</dt>
           <dd rel="rdfs:subClassOf">
             <span id="generalizes-issue" typeof="owl:Restriction">
@@ -133,9 +146,9 @@
       <section id="Argument" about="[ibis:Argument]" typeof="owl:Class">
         <h3><code property="rdfs:label">Argument</code></h3>
         <p property="rdfs:comment">An Argument is a type of Issue that explicitly supports or refutes a Position.</p>
-        <blockquote>
+        <aside role="note">
           <p property="skos:usageNote">An Argument need not only relate in scope to another Argument, but it must only be replaced by another argument.</p>
-        </blockquote>
+        </aside>
         <dl>
           <dt>Subclass of:</dt>
           <!--<dd><a rel="rdfs:subClassOf" href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></dd>-->
@@ -188,7 +201,7 @@
       <section>
         <h3>Agency</h3>
         <p>Since argumentation doesn't happen in a vacuum, it is important to provide a mechanism for connecting agents (ideally people) to the process. While the <a about="#" rel="rdfs:seeAlso" href="http://dublincore.org/documents/dcmi-terms/">Dublin Core</a> and <a about="#" rel="rdfs:seeAlso" href="http://www.w3.org/TR/prov-o/">provenance ontologies</a> are available for expressing authorship, there exist other agent-related considerations.</p>
-        <p>These terms are extensions to the original <acronym title="issue-based information system">IBIS</acronym> model.</p>
+        <p>These terms are extensions to the original <abbr title="issue-based information system">IBIS</abbr> model.</p>
         <section id="endorses" about="[ibis:endorses]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">endorses</code></h4>
           <p property="rdfs:comment">An Agent can endorse a concept without having initially mentioned or advanced it, and without any additional comment.</p>
@@ -258,8 +271,8 @@
           <dl>
             <dt>Domain:</dt>
             <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
-            <dt>Range:</dt>
-            <dd><a rel="rdfs:range" href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a></dd>
+            <!--<dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a></dd>-->
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#concern-of"><code>ibis:concern-of</code></a></dd>
           </dl>
@@ -269,8 +282,8 @@
           <h4><code property="rdfs:label">concern-of</code></h4>
           <p property="rdfs:comment">The subject is an issue concerning the object, which can be any resource.</p>
           <dl>
-            <dt>Domain:</dt>
-            <dd><a rel="rdfs:domain" href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a></dd>
+            <!--<dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="http://www.w3.org/2002/07/owl#Thing"><code>owl:Thing</code></a></dd>-->
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Inverse of:</dt>
@@ -281,7 +294,7 @@
       </section>
       <section>
         <h3>Subordination and Superordination</h3>
-        <p>While all <acronym title="Issue-based Information System">IBIS</acronym> terms inherit the semantic relations from <acronym title="Simple Knowledge Organization System">SKOS</acronym>, the <acronym title="Issue-based Information System">IBIS</acronym> paper specifies mereological relations peculiar to Issues. I have relaxed the constraint specified in the paper, such that these relations are now merely vestigial.</p>
+        <p>While all <abbr title="Issue-based Information System">IBIS</abbr> terms inherit the semantic relations from <abbr title="Simple Knowledge Organization System">SKOS</abbr>, the <abbr title="Issue-based Information System">IBIS</abbr> paper specifies mereological relations peculiar to Issues. I have relaxed the constraint specified in the paper, such that these relations are now merely vestigial.</p>
         <section id="generalizes" about="[ibis:generalizes]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">generalizes</code></h4>
           <p property="rdfs:comment">The subject is a more generic form of the object.</p>
@@ -531,16 +544,16 @@
       <p>After enough time in the saddle, I am fairly convinced that <a href="#questions">questions</a> and <a href="#suggests">suggests</a> are roughly inversely related, with <dfn>questions</dfn> being a stronger form of <a href="#suggested-by">suggested-by</a>, and have such made the former a subproperty of the latter.</p>
       <section>
         <h3>Future Directions</h3>
-        <p>Other <acronym title="Issue-based information system">IBIS</acronym> implementations have an explicit concept of a <em>Question</em>, which I considered but ultimately left out. There is already a discontinuity between the grammatical form of a question and its purpose in ordinary dialogue&#x2014;i.e., are we actually asking for information or is the question merely rhetorical. We don't need to confuse things further by cementing that discontinuity into formal language.</p>
-        <p>There is also the natural tendency that once we have agreed on a particular <a href="#Position">Position</a>, that we commit it to action. It is therefore tempting to extend the <acronym title="Issue-based information system">IBIS</acronym> vocabulary into some sort of project planning apparatus. I have chosen instead to leave this vocabulary alone if possible, and extend it through <a about="#" rel="rdfs:seeAlso" href="/process-model#">a process model ontology</a>.</p>
+        <p>Other <abbr title="Issue-based information system">IBIS</abbr> implementations have an explicit concept of a <em>Question</em>, which I considered but ultimately left out. There is already a discontinuity between the grammatical form of a question and its purpose in ordinary dialogue&#x2014;i.e., are we actually asking for information or is the question merely rhetorical. We don't need to confuse things further by cementing that discontinuity into formal language.</p>
+        <p>There is also the natural tendency that once we have agreed on a particular <a href="#Position">Position</a>, that we commit it to action. It is therefore tempting to extend the <abbr title="Issue-based information system">IBIS</abbr> vocabulary into some sort of project planning apparatus. I have chosen instead to leave this vocabulary alone if possible, and extend it through <a about="#" rel="rdfs:seeAlso" href="/process-model#">a process model ontology</a>.</p>
       </section>
     </section>
     <section>
       <h2>References</h2>
       <ul about="#">
-        <li><a rel="rdfs:seeAlso" type="application/pdf" href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"><span property="dct:title">Issues as Elements of Information Systems</span> (<span property="dct:creator" content="Werner Kunz">Kunz</span> and <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span property="dct:date">1970</span>)</a></li>
-        <li><a type="application/pdf" rel="rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf"><span property="dct:title">gIBIS: a hypertext tool for exploratory policy discussion</span> (<span property="dct:creator" content="Jeff Conklin">Conklin</span> and <span property="dct:creator" content="Michael L. Begeman">Begeman</span>, <span property="dct:date">1988</span>)</a></li>
-        <li><a rel="rdfs:seeAlso" href="http://en.wikipedia.org/wiki/Issue-Based_Information_System">Wikipedia entry for <acronym title="Issue-based information system">IBIS</acronym></a></li>
+        <li><a rel="rdfs:seeAlso" type="application/pdf" href="http://www.cc.gatech.edu/~ellendo/rittel/rittel-issues.pdf"><span property="dct:title">Issues as Elements of Information Systems</span> (<span property="dct:creator" content="Werner Kunz">Kunz</span> and <span property="dct:creator" content="Horst Rittel">Rittel</span>, <span property="dct:date" datatype="xsd:gYear">1970</span>)</a></li>
+        <li><a type="application/pdf" rel="rdfs:seeAlso" href="http://www.cs.hut.fi/Opinnot/T-93.850/2005/Papers/gIBIS1988-conklin.pdf"><span property="dct:title">gIBIS: a hypertext tool for exploratory policy discussion</span> (<span property="dct:creator" content="Jeff Conklin">Conklin</span> and <span property="dct:creator" content="Michael L. Begeman">Begeman</span>, <span property="dct:date" datatype="xsd:gYear">1988</span>)</a></li>
+        <li><a rel="rdfs:seeAlso" href="http://en.wikipedia.org/wiki/Issue-Based_Information_System">Wikipedia entry for <abbr title="Issue-based information system">IBIS</abbr></a></li>
       </ul>
     </section>
   </body>
