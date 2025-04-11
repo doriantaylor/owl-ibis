@@ -5,7 +5,7 @@ Author
 rel="dct:creator"><span property="foaf:name">Dorian Taylor</span></a>
 
 Version  
-0.5
+0.6
 
 Created  
 December 11, 2012
