@@ -768,7 +768,7 @@ rel="rdfs:range"><code>ibis:Position</code></a>
 
 Sub-property of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggested-by"
-rel="rdfs:subject"><code>ibis:suggested-by</code></a>
+rel="rdfs:subPropertyOf"><code>ibis:suggested-by</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#supported-by"
@@ -796,7 +796,7 @@ rel="rdfs:range"><code>ibis:Argument</code></a>
 
 Sub-property of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggests"
-rel="rdfs:subject"><code>ibis:suggests</code></a>
+rel="rdfs:subPropertyOf"><code>ibis:suggests</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#supports"
@@ -824,7 +824,7 @@ rel="rdfs:range"><code>ibis:Position</code></a>
 
 Sub-property of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggested-by"
-rel="rdfs:subject"><code>ibis:suggested-by</code></a>
+rel="rdfs:subPropertyOf"><code>ibis:suggested-by</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#opposed-by"
@@ -852,7 +852,7 @@ rel="rdfs:range"><code>ibis:Argument</code></a>
 
 Sub-property of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggests"
-rel="rdfs:subject"><code>ibis:suggests</code></a>
+rel="rdfs:subPropertyOf"><code>ibis:suggests</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#opposes"
