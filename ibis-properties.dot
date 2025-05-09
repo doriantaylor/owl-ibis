@@ -78,10 +78,14 @@ digraph {
         ibis_replaced_by   -> skos_semanticRelation;
         ibis_response      -> skos_semanticRelation;
         ibis_responds_to   -> skos_semanticRelation;
-        ibis_supports      -> skos_semanticRelation;
-        ibis_supported_by  -> skos_semanticRelation;
-        ibis_opposes       -> skos_semanticRelation;
-        ibis_opposed_by    -> skos_semanticRelation;
+        // ibis_supports      -> skos_semanticRelation;
+        // ibis_supported_by  -> skos_semanticRelation;
+        // ibis_opposes       -> skos_semanticRelation;
+        // ibis_opposed_by    -> skos_semanticRelation;
+        ibis_supports      -> ibis_suggested_by;
+        ibis_supported_by  -> ibis_suggests;
+        ibis_opposes       -> ibis_suggested_by;
+        ibis_opposed_by    -> ibis_suggests;
     }
 
     /*

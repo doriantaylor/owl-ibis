@@ -41,6 +41,7 @@
         <dd property="dct:modified" datatype="xsd:dateTime" content="2023-12-18T02:25:31Z">December 18, 2023</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2024-01-05T04:05:24Z">January 4, 2024</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2025-04-10T02:30:11Z">April 9, 2025</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2025-05-09T04:08:32Z">May 9, 2025</dd>
         <dt>Namespace URI</dt>
         <dd><a href="#"><code>https://vocab.methodandstructure.com/ibis#</code></a></dd>
         <dt>Preferred Namespace Prefix</dt>
@@ -481,7 +482,7 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Position"><code>ibis:Position</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subject" href="#suggested-by"><code>ibis:suggested-by</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#supported-by"><code>ibis:supported-by</code></a></dd>
           </dl>
@@ -496,7 +497,7 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Argument"><code>ibis:Argument</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subject" href="#suggests"><code>ibis:suggests</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#supports"><code>ibis:supports</code></a></dd>
           </dl>
@@ -511,7 +512,7 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Position"><code>ibis:Position</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subject" href="#suggested-by"><code>ibis:suggested-by</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#opposed-by"><code>ibis:opposed-by</code></a></dd>
           </dl>
@@ -526,7 +527,7 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Argument"><code>ibis:Argument</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subject" href="#suggests"><code>ibis:suggests</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#opposes"><code>ibis:opposes</code></a></dd>
           </dl>

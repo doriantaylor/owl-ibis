@@ -25,6 +25,8 @@ January 4, 2024
 
 April 9, 2025
 
+May 9, 2025
+
 Namespace URI  
 [`https://vocab.methodandstructure.com/ibis#`](https://vocab.methodandstructure.com/ibis#)
 
@@ -765,8 +767,8 @@ Range:
 rel="rdfs:range"><code>ibis:Position</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#suggested-by"
+rel="rdfs:subject"><code>ibis:suggested-by</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#supported-by"
@@ -793,8 +795,8 @@ Range:
 rel="rdfs:range"><code>ibis:Argument</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#suggests"
+rel="rdfs:subject"><code>ibis:suggests</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#supports"
@@ -821,8 +823,8 @@ Range:
 rel="rdfs:range"><code>ibis:Position</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#suggested-by"
+rel="rdfs:subject"><code>ibis:suggested-by</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#opposed-by"
@@ -849,8 +851,8 @@ Range:
 rel="rdfs:range"><code>ibis:Argument</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#suggests"
+rel="rdfs:subject"><code>ibis:suggests</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#opposes"
