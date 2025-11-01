@@ -5,7 +5,7 @@ Author
 rel="dct:creator"><span property="foaf:name">Dorian Taylor</span></a>
 
 Version  
-0.6
+0.7
 
 Created  
 December 11, 2012
@@ -26,6 +26,8 @@ January 4, 2024
 April 9, 2025
 
 May 9, 2025
+
+October 31, 2025
 
 Namespace URI  
 [`https://vocab.methodandstructure.com/ibis#`](https://vocab.methodandstructure.com/ibis#)
@@ -512,11 +514,14 @@ Range:
 rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
-<a href="http://purl.org/dc/terms/replaces"
-rel="rdfs:subPropertyOf"><code>dct:replaces</code></a>
+<a
+href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/replaces"
+rel="rdfs:subPropertyOf"
+resource="dct:replaces"><code>dct:replaces</code></a>
 
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://www.w3.org/TR/skos-reference/#semantic-relations"
+rel="rdfs:subPropertyOf"
+resource="skos:semanticRelation"><code>skos:semanticRelation</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#replaced-by"
@@ -544,15 +549,82 @@ Range:
 rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
-<a href="http://purl.org/dc/terms/isReplacedBy"
-rel="rdfs:subPropertyOf"><code>dct:isReplacedBy</code></a>
+<a
+href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/isReplacedBy"
+rel="rdfs:subPropertyOf"
+resource="dct:isReplacedBy"><code>dct:isReplacedBy</code></a>
 
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://www.w3.org/TR/skos-reference/#semantic-relations"
+rel="rdfs:subPropertyOf"
+resource="skos:semanticRelation"><code>skos:semanticRelation</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#replaces"
 rel="owl:inverseOf"><code>ibis:replaces</code></a>
+
+<a href="https://vocab.methodandstructure.com/ibis#"
+rel="rdfs:isDefinedBy">Back to Top</a>
+
+</div>
+
+</div>
+
+<div class="section">
+
+### Implications
+
+<div id="implies" class="section" about="[ibis:implies]"
+typeof="owl:ObjectProperty">
+
+#### `implies`
+
+The existence of an `ibis:Entity` implies an `ibis:State`.
+
+Domain:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:domain"><code>ibis:Entity</code></a>
+
+Range:  
+<a href="https://vocab.methodandstructure.com/ibis#State"
+rel="rdfs:range"><code>ibis:State</code></a>
+
+Sub-property of:  
+<a href="https://www.w3.org/TR/skos-reference/#semantic-relations"
+rel="rdfs:subPropertyOf"
+resource="skos:semanticRelation"><code>skos:semanticRelation</code></a>
+
+Inverse of:  
+<a href="https://vocab.methodandstructure.com/ibis#implied-by"
+rel="owl:inverseOf"><code>ibis:implied-by</code></a>
+
+<a href="https://vocab.methodandstructure.com/ibis#"
+rel="rdfs:isDefinedBy">Back to Top</a>
+
+</div>
+
+<div id="implied-by" class="section" about="[ibis:implied-by]"
+typeof="owl:ObjectProperty">
+
+#### `implied-by`
+
+An `ibis:State` may be implied by an `ibis:Entity`.
+
+Domain:  
+<a href="https://vocab.methodandstructure.com/ibis#State"
+rel="rdfs:domain"><code>ibis:State</code></a>
+
+Range:  
+<a href="https://vocab.methodandstructure.com/ibis#Entity"
+rel="rdfs:range"><code>ibis:Entity</code></a>
+
+Sub-property of:  
+<a href="https://www.w3.org/TR/skos-reference/#semantic-relations"
+rel="rdfs:subPropertyOf"
+resource="skos:semanticRelation"><code>skos:semanticRelation</code></a>
+
+Inverse of:  
+<a href="https://vocab.methodandstructure.com/ibis#implies"
+rel="owl:inverseOf"><code>ibis:implies</code></a>
 
 <a href="https://vocab.methodandstructure.com/ibis#"
 rel="rdfs:isDefinedBy">Back to Top</a>
@@ -570,7 +642,7 @@ typeof="owl:ObjectProperty">
 
 #### `suggests`
 
-Indicates when the subject belief suggests the object issue.
+An `ibis:Entity` may suggest an `ibis:Issue`.
 
 Domain:  
 <a href="https://vocab.methodandstructure.com/ibis#Entity"
@@ -581,8 +653,8 @@ Range:
 rel="rdfs:range"><code>ibis:Issue</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://vocab.methodandstructure.com/ibis#implies"
+rel="rdfs:subPropertyOf"><code>ibis:implies</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggested-by"
@@ -598,7 +670,7 @@ typeof="owl:ObjectProperty">
 
 #### `suggested-by`
 
-Indicates when the subject issue is suggested by the object belief.
+An `ibis:Issue` may be suggested by an `ibis:Entity`.
 
 Domain:  
 <a href="https://vocab.methodandstructure.com/ibis#Issue"
@@ -609,8 +681,8 @@ Range:
 rel="rdfs:range"><code>ibis:Entity</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="ibis:implied-by"
+rel="rdfs:subPropertyOf"><code>ibis:implied-by</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#suggests"
@@ -705,8 +777,9 @@ Range:
 rel="rdfs:range"><code>ibis:Position</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://www.w3.org/TR/skos-reference/#semantic-relations"
+rel="rdfs:subPropertyOf"
+resource="skos:semanticRelation"><code>skos:semanticRelation</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#responds-to"
@@ -733,8 +806,9 @@ Range:
 rel="rdfs:range"><code>ibis:Issue</code></a>
 
 Sub-property of:  
-<a href="http://www.w3.org/2004/02/skos/core#semanticRelation"
-rel="rdfs:subPropertyOf"><code>skos:semanticRelation</code></a>
+<a href="https://www.w3.org/TR/skos-reference/#semantic-relations"
+rel="rdfs:subPropertyOf"
+resource="skos:semanticRelation"><code>skos:semanticRelation</code></a>
 
 Inverse of:  
 <a href="https://vocab.methodandstructure.com/ibis#response"

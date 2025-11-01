@@ -30,7 +30,7 @@
         <dt>Author</dt>
         <dd><a rel="dct:creator" href="https://doriantaylor.com/person/dorian-taylor#me"><span property="foaf:name">Dorian Taylor</span></a></dd>
         <dt>Version</dt>
-        <dd property="owl:versionInfo" datatype="xsd:string">0.6</dd>
+        <dd property="owl:versionInfo" datatype="xsd:string">0.7</dd>
         <dt>Created</dt>
         <dd property="dct:created" datatype="xsd:dateTime" content="2012-12-11T22:22:53-08:00">December 11, 2012</dd>
         <dt>Updated</dt>
@@ -42,6 +42,7 @@
         <dd property="dct:modified" datatype="xsd:dateTime" content="2024-01-05T04:05:24Z">January 4, 2024</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2025-04-10T02:30:11Z">April 9, 2025</dd>
         <dd property="dct:modified" datatype="xsd:dateTime" content="2025-05-09T04:08:32Z">May 9, 2025</dd>
+        <dd property="dct:modified" datatype="xsd:dateTime" content="2025-10-31T22:26:31Z">October 31, 2025</dd>
         <dt>Namespace URI</dt>
         <dd><a href="#"><code>https://vocab.methodandstructure.com/ibis#</code></a></dd>
         <dt>Preferred Namespace Prefix</dt>
@@ -348,8 +349,8 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/replaces"><code>dct:replaces</code></a></dd>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" resource="dct:replaces" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/replaces"><code>dct:replaces</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" resource="skos:semanticRelation" href="https://www.w3.org/TR/skos-reference/#semantic-relations"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#replaced-by"><code>ibis:replaced-by</code></a></dd>
           </dl>
@@ -364,10 +365,43 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://purl.org/dc/terms/isReplacedBy"><code>dct:isReplacedBy</code></a></dd>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" resource="dct:isReplacedBy" href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/terms/isReplacedBy"><code>dct:isReplacedBy</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" resource="skos:semanticRelation" href="https://www.w3.org/TR/skos-reference/#semantic-relations"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#replaces"><code>ibis:replaces</code></a></dd>
+          </dl>
+          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+        </section>
+      </section>
+      <section>
+        <h3>Implications</h3>
+        <section id="implies" about="[ibis:implies]" typeof="owl:ObjectProperty">
+          <h4><code property="rdfs:label">implies</code></h4>
+          <p property="rdfs:comment">The existence of an <code>ibis:Entity</code> implies an <code>ibis:State</code>.</p>
+          <dl>
+            <dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
+            <dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="#State"><code>ibis:State</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" resource="skos:semanticRelation" href="https://www.w3.org/TR/skos-reference/#semantic-relations"><code>skos:semanticRelation</code></a></dd>
+            <dt>Inverse of:</dt>
+            <dd><a rel="owl:inverseOf" href="#implied-by"><code>ibis:implied-by</code></a></dd>
+          </dl>
+          <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
+        </section>
+        <section id="implied-by" about="[ibis:implied-by]" typeof="owl:ObjectProperty">
+          <h4><code property="rdfs:label">implied-by</code></h4>
+          <p property="rdfs:comment">An <code>ibis:State</code> may be implied by an <code>ibis:Entity</code>.</p>
+          <dl>
+            <dt>Domain:</dt>
+            <dd><a rel="rdfs:domain" href="#State"><code>ibis:State</code></a></dd>
+            <dt>Range:</dt>
+            <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
+            <dt>Sub-property of:</dt>
+            <dd><a rel="rdfs:subPropertyOf" resource="skos:semanticRelation" href="https://www.w3.org/TR/skos-reference/#semantic-relations"><code>skos:semanticRelation</code></a></dd>
+            <dt>Inverse of:</dt>
+            <dd><a rel="owl:inverseOf" href="#implies"><code>ibis:implies</code></a></dd>
           </dl>
           <p><a rel="rdfs:isDefinedBy" href="#">Back to Top</a></p>
         </section>
@@ -376,14 +410,14 @@
         <h3>Suggestions</h3>
         <section id="suggests" about="[ibis:suggests]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">suggests</code></h4>
-          <p property="rdfs:comment">Indicates when the subject belief suggests the object issue.</p>
+          <p property="rdfs:comment">An <code>ibis:Entity</code> may suggest an <code>ibis:Issue</code>.</p>
           <dl>
             <dt>Domain:</dt>
             <dd><a rel="rdfs:domain" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="#implies"><code>ibis:implies</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#suggested-by"><code>ibis:suggested-by</code></a></dd>
           </dl>
@@ -391,14 +425,14 @@
         </section>
         <section id="suggested-by" about="[ibis:suggested-by]" typeof="owl:ObjectProperty">
           <h4><code property="rdfs:label">suggested-by</code></h4>
-          <p property="rdfs:comment">Indicates when the subject issue is suggested by the object belief.</p>
+          <p property="rdfs:comment">An <code>ibis:Issue</code> may be suggested by an <code>ibis:Entity</code>.</p>
           <dl>
             <dt>Domain:</dt>
             <dd><a rel="rdfs:domain" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Entity"><code>ibis:Entity</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" href="ibis:implied-by"><code>ibis:implied-by</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#suggests"><code>ibis:suggests</code></a></dd>
           </dl>
@@ -449,7 +483,7 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Position"><code>ibis:Position</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" resource="skos:semanticRelation" href="https://www.w3.org/TR/skos-reference/#semantic-relations"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#responds-to"><code>ibis:responds-to</code></a></dd>
           </dl>
@@ -464,7 +498,7 @@
             <dt>Range:</dt>
             <dd><a rel="rdfs:range" href="#Issue"><code>ibis:Issue</code></a></dd>
             <dt>Sub-property of:</dt>
-            <dd><a rel="rdfs:subPropertyOf" href="http://www.w3.org/2004/02/skos/core#semanticRelation"><code>skos:semanticRelation</code></a></dd>
+            <dd><a rel="rdfs:subPropertyOf" resource="skos:semanticRelation" href="https://www.w3.org/TR/skos-reference/#semantic-relations"><code>skos:semanticRelation</code></a></dd>
             <dt>Inverse of:</dt>
             <dd><a rel="owl:inverseOf" href="#response"><code>ibis:response</code></a></dd>
           </dl>

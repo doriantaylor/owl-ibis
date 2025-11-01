@@ -28,6 +28,7 @@ digraph {
         */
         // ibis_Issue -> ibis_Issue [label="ibis:generalizes\nibis:specializes\nibis:replaces\nibis:questions\nibis:suggests"];
         ibis_Entity -> ibis_Entity [label="ibis:generalizes, ibis:specializes", dir=both];
+        ibis_Entity -> ibis_State [label="ibis:implies"];
         ibis_Entity -> ibis_Issue [label="ibis:suggests"];
         ibis_Issue  -> ibis_Entity [label="ibis:questions"];
 

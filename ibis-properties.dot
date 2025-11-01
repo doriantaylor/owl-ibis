@@ -19,6 +19,7 @@ digraph {
         node [shape=box, style=""];
         ibis_Network  [label="ibis:Network",  href="https://vocab.methodandstructure.com/ibis#Network"];
         ibis_Entity   [label="ibis:Entity",   href="https://vocab.methodandstructure.com/ibis#Entity"];
+        ibis_State    [label="ibis:State",    href="https://vocab.methodandstructure.com/ibis#State"];
         ibis_Issue    [label="ibis:Issue",    href="https://vocab.methodandstructure.com/ibis#Issue"];
         ibis_Position [label="ibis:Position", href="https://vocab.methodandstructure.com/ibis#Position"];
         ibis_Argument [label="ibis:Argument", href="https://vocab.methodandstructure.com/ibis#Argument"];
@@ -48,6 +49,8 @@ digraph {
     ibis_specializes [label="ibis:specializes", href="https://vocab.methodandstructure.com/ibis#specializes"];
     ibis_replaces [label="ibis:replaces", href="https://vocab.methodandstructure.com/ibis#replaces"];
     ibis_replaced_by [label="ibis:replaced-by", href="https://vocab.methodandstructure.com/ibis#replaced-by"];
+    ibis_implies [label="ibis:implies", href="https://vocab.methodandstructure.com/ibis#implies"];
+    ibis_implied_by [label="ibis:implied-by", href="https://vocab.methodandstructure.com/ibis#implied-by"];
     ibis_suggests [label="ibis:suggests", href="https://vocab.methodandstructure.com/ibis#suggests"];
     ibis_suggested_by [label="ibis:suggested-by", href="https://vocab.methodandstructure.com/ibis#suggested-by"];
     ibis_questions [label="ibis:questions", href="https://vocab.methodandstructure.com/ibis#questions"];
@@ -72,8 +75,8 @@ digraph {
         ibis_specializes   -> skos_broader;
         ibis_replaces      -> dct_replaces;
         ibis_replaced_by   -> dct_isReplacedBy;
-        ibis_questions     -> ibis_suggested_by -> skos_semanticRelation;
-        ibis_questioned_by -> ibis_suggests     -> skos_semanticRelation;
+        ibis_questions     -> ibis_suggested_by -> ibis_implied_by -> skos_semanticRelation;
+        ibis_questioned_by -> ibis_suggests     -> ibis_implies    -> skos_semanticRelation;
         ibis_replaces      -> skos_semanticRelation;
         ibis_replaced_by   -> skos_semanticRelation;
         ibis_response      -> skos_semanticRelation;
@@ -120,6 +123,8 @@ digraph {
         ibis_concern_of    -> owl_Thing;
         ibis_generalizes   -> ibis_Entity;
         ibis_specializes   -> ibis_Entity;
+        ibis_implies       -> ibis_Entity;
+        ibis_implied_by    -> ibis_State;
         ibis_suggests      -> ibis_Entity;
         ibis_suggested_by  -> ibis_Issue;
         ibis_questions     -> ibis_Issue;
@@ -145,6 +150,8 @@ digraph {
         ibis_concern_of    -> ibis_Entity;
         ibis_generalizes   -> ibis_Entity;
         ibis_specializes   -> ibis_Entity;
+        ibis_implies       -> ibis_State;
+        ibis_implied_by    -> ibis_Entity;
         ibis_suggests      -> ibis_Issue;
         ibis_suggested_by  -> ibis_Entity;
         ibis_questions     -> ibis_Entity;
